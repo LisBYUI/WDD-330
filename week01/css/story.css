@@ -1,0 +1,54 @@
+textarea{
+    width:800px;
+    height:250px;
+    background-color: lightblue;
+}
+.form_settings
+{ margin: 5px 0 0 0;}
+
+.form_settings p
+{ padding: 0 0 10px 0;}
+
+.form_settings span
+{ padding: 5px 0; 
+  float: left; 
+  width: 170px; 
+  text-align: left;}
+  
+.form_settings input, .form_settings textarea
+{ width: 252px; 
+  font: 100% 'trebuchet ms', arial;
+  border: 0;
+  border: 1px solid #eee;
+  padding: 5px 10px;
+  background: #fff;
+  color: #FFF;}
+  
+.form_settings .submit
+{ border: 0; 
+  width: auto;
+  margin: 0 0 0 200px; 
+  cursor: pointer; 
+  color: #35BDF5;
+  border: 1px solid #ddd;
+  padding: 5px 15px;
+  background: #fff;
+  font: normal 140% 'Yanone Kaffeesatz', sans-serif;}
+
+.form_settings textarea, .form_settings select
+{ font: 100% 'trebuchet ms', arial; 
+  border: 1px solid #eee;
+  padding: 5px 10px;
+  background: #fff;
+  width: 252px;
+  overflow: auto;}
+
+.form_settings select
+{ width: 274px;}
+
+.form_settings .checkbox
+{ margin: 4px 0; 
+  padding: 0; 
+  width: 14px;
+  border: 0;
+  background: none;}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Example Code</title>
+    <script src="js/story.js"></script>
+    <!-- main css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        textarea {
+            width: 800px;
+            height: 250px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="header">
+            <div id="logo_text">
+                <h1>Example Code From Week 01</h1>
+            </div>
+        </div>
+        <div id="site_content">
+            <h3>Story Editor</h3>
+            <hr>
+            <div id="content">
+                <div class="form_settings">
+                    <p><span>Story Name:</span>
+                        <input id="name_input"></input>
+                    </p>
+                    <section>
+                        <button onclick="loadStory()">Find and Edit</button>
+                        <button onclick="saveStory()">Save</button>
+                        <button onclick="displayStory()">Display</button>
+                    </section>
+                    <textarea id="story_editor" placeholder="Write a totally awesome story here"></textarea>
+                    <section id="story_display"></section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <hr>
+        <a href="../index.html">Home page</a>
+        <p>Copyright&copy; 2020 | Portfolio | Lis Alves</p>
+    </div>
+</body>
+
+</html>
