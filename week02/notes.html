@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>W02 - Notes</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+</head>
+
+<body>
+    <div id="main">
+        <div id="header">
+            <div id="logo_text">
+                <h1>Notes</h1>
+                <h2>Week 02</h2>
+
+            </div>
+        </div>
+        <div id="site_content">
+            <h2>Programming Basics</h2>
+
+            <hr>
+            <div id="content">
+                <h3>General Syntactic Characteristics</h3>
+                <h4>The basics&nbsp;</strong></h4>
+                <p>There are a few common syntactical rules that wind their way though all of JavaScript. It is
+                    important to know that JavaScript is <strong>case-sensitive</strong>. A variable
+                    named<em>&nbsp;&ldquo;myVariable&rdquo;</em>, a variable named <em>&ldquo;myvariable&rdquo;</em>,
+                    and a variable named <em>&ldquo;MYVariable&rdquo;</em> will be treated as three different objects.
+                    Also, whitespace such as tabs and spaces are ignored, unless they&rsquo;re part of a string of text
+                    and enclosed in quotes.</p>
+                <h4>Statements</h4>
+                <p>A script is made up of a series of statements. A statement is a command that tells the browser what
+                    to do. Here is a simple statement that makes the browser display an alert with the phrase
+                    &ldquo;Thank you.&rdquo; <em>alert(&quot;Thank you.&quot;);</em> The semicolon at the end of the
+                    statement tells JavaScript that it&rsquo;s the end of the command, just as a period ends a sentence.
+                    According to the JavaScript standard, a line break will also trigger the end of a command, but it is
+                    a best practice to end each statement with a semicolon.</p>
+                <h4>Comments</h4>
+                <p>JavaScript allows you to leave comments that will be ignored at the time the script is executed, so
+                    you can leave reminders and explanations throughout your code. This is especially helpful if this
+                    code is likely to be edited by another developer in the future.</p>
+                <p>In JavaScript there are two types of comment:</p>
+                <ul>
+                    <li>Single line comments starting with two slash characters(//) and finishing at the end of the
+                        line:</li>
+                </ul>
+                <p><em>// this is a short comment</em></p>
+                <ul>
+                    <li>Multi-line comments starting with<strong>&nbsp;/*</strong> and finishing with */:</li>
+                </ul>
+                <p><em>/* This is a longer comment&nbsp;</em></p>
+                <p><em>anything here will be ignored&nbsp;</em></p>
+                <p><em>This is a useful place to put notes */</em></p>
+
+                <h4>Variables</h4>
+                <p>A variable is like an information container.Variables <strong>do not have data types</strong> in
+                    JavaScript. However, every variable has a value,
+                    and every value belongs to one of six JavaScript data types. Every numeric value is of type Number,
+                    string values are of type String, the literals true and false represent the two Boolean values, the
+                    literal null represents the one value of type Null, and every object is of type Object.</p>
+                <p>In JavaScript, <strong>typeof </strong>is an operator that provides information about the data type
+                    of a value stored in a variable. In JavaScript, objects and functions are also variables.</p>
+
+                <table style="width: 96%; margin-left: calc(4%);">
+                    <tbody>
+                        <tr>
+                            <td>Data type</strong></td>
+                            <td>Definition</strong><br></td>
+                        </tr>
+                        <tr>
+                            <td>undefined</td>
+                            <td>one value-the special value undefined. If a variable has been declared, but has not been
+                                assigned a value, has the value undefined.</td>
+                        </tr>
+                        <tr>
+                            <td>null</td>
+                            <td>there is no value. It is not equivalent to an empty string (&quot;&quot;) or 0, it is
+                                simply nothing.</td>
+                        </tr>
+                        <tr>
+                            <td>object</td>
+                            <td>a complex data type that allows you to store collections of data. An object contains
+                                properties, defined as a key-value pair.</td>
+                        </tr>
+                        <tr>
+                            <td>NaN</td>
+                            <td>
+                                <p>a property of the global object. NaN is an error value that is short for "Not a
+                                    Number".</p>
+                                <p>There are several ways in which NaN can happen:</p>
+                                <ul>
+                                    <li>Division of zero by zero</li>
+                                    <li>Dividing an infinity by an infinity</li>
+                                    <li>Multiplication of an infinity by a zero</li>
+                                    <li>Any operation in which NaN is an operand</li>
+                                    <li>Converting a non-numeric string or undefined into a number</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>infinity </td>
+                            <td> a special error value in JavaScript that is used to represent any number that is too
+                                big for the language to deal with.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table style="width: 96%; margin-left: calc(4%);">
+                    <tbody>
+                        <tr>
+                            <td><strong>Operand Value</strong></td>
+                            <td><strong>String typeof Returns</strong></td>
+                        </tr>
+                        <tr>
+                            <td>null</td>
+                            <td>object</td>
+                        </tr>
+                        <tr>
+                            <td>Boolean</td>
+                            <td>boolean</td>
+                        </tr>
+                        <tr>
+                            <td>Number</td>
+                            <td>number</td>
+                        </tr>
+                        <tr>
+                            <td>String</td>
+                            <td>string</td>
+                        </tr>
+                        <tr>
+                            <td>Native Object representing function</td>
+                            <td>function</td>
+                        </tr>
+                        <tr>
+                            <td>Native Object not representing function</td>
+                            <td>object</td>
+                        </tr>
+                        <tr>
+                            <td>Declared variable with no value</td>
+                            <td>undefined</td>
+                        </tr>
+                        <tr>
+                            <td>Undeclared variable</td>
+                            <td>undefined</td>
+                        </tr>
+                        <tr>
+                            <td>Nonexistent property of an Object</td>
+                            <td>undefined</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table style="width: 96%; margin-left: calc(4%);">
+                    <tbody>
+                        <tr>
+                            <td colspan="2" style="width: 99.8279%; text-align: center;"><strong>Data type conversion to
+                                    Boolean</strong></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%; text-align: center;"><strong>Original Value</strong></td>
+                            <td style="width: 49.1057%; text-align: center;"><strong>Value as Boolean</strong></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">Undefined <br></td>
+                            <td style="width: 49.1057%;">false</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">null</td>
+                            <td style="width: 49.1057%;">false</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">0</td>
+                            <td style="width: 49.1057%;">false</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">NaN</td>
+                            <td style="width: 49.1057%;">false</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">&quot;&quot; (empty string)</td>
+                            <td style="width: 49.1057%;">false</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">Any other value</td>
+                            <td style="width: 49.1057%;">true</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td colspan="2" style="width: 99.8279%; text-align: center;"><strong>Data type conversion to
+                                    String</strong></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%; text-align: center;"><strong>Original Value</strong></td>
+                            <td style="width: 49.1057%; text-align: center;"><strong>Value as Boolean</strong></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">Undefined <br></td>
+                            <td style="width: 49.1057%;">undefined</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">null</td>
+                            <td style="width: 49.1057%;">null</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">true, false</td>
+                            <td style="width: 49.1057%;">true, false</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">NaN</td>
+                            <td style="width: 49.1057%;">NaN</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">Infinity, &nbsp;- Infinity</td>
+                            <td style="width: 49.1057%;">Infinity, -Infinity</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">Other Number up to ~20 digits</td>
+                            <td style="width: 49.1057%;">Integer or decimal representation</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">Number over ~20 digits</td>
+                            <td style="width: 49.1057%;">Scientific notatio</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">Object</td>
+                            <td style="width: 49.1057%;">Call to toString() method on the object</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td colspan="2" style="width: 99.8279%; text-align: center;"><strong>Data type conversion to
+                                    Number</strong></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%; text-align: center;"><strong>Original Value</strong></td>
+                            <td style="width: 49.1057%; text-align: center;"><strong>Value as Boolean</strong></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">Undefined <br></td>
+                            <td style="width: 49.1057%;">NaN</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">null, false, &quot;&quot; (empty string)</td>
+                            <td style="width: 49.1057%;">0</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">true</td>
+                            <td style="width: 49.1057%;">1</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">String representing number</td>
+                            <td style="width: 49.1057%;">Represented number</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">Other string</td>
+                            <td style="width: 49.1057%;">NaN</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50.7317%;">Object</td>
+                            <td style="width: 49.1057%;">Call to valueOf() method on the object</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h5>Naming Constants & Variables</h5>
+                <p>In JavaScript, these reserved words cannot be used as variables:</p>
+                <h5></h5>
+                <table style="width: 96%; margin-left: calc(4%);">
+                    <tbody>
+                        <tr>
+                            <td colspan="4" style="text-align: center; font-weight: bold;">JavaScript Reserved Words
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">abstract</td>
+                            <td style="width: 25%;">double</td>
+                            <td style="width: 25%;">instanceof</td>
+                            <td style="width: 25%;">switch</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">arguments</td>
+                            <td style="width: 25%;">else</td>
+                            <td style="width: 25%;">int</td>
+                            <td style="width: 25%;">synchronized</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">await</td>
+                            <td style="width: 25%;">enum</td>
+                            <td style="width: 25%;">interface</td>
+                            <td style="width: 25%;">this</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">boolean</td>
+                            <td style="width: 25%;">eval</td>
+                            <td style="width: 25%;">let</td>
+                            <td style="width: 25%;">throw</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">break</td>
+                            <td style="width: 25%;">export</td>
+                            <td style="width: 25%;">long</td>
+                            <td style="width: 25%;">throws</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">byte</td>
+                            <td style="width: 25%;">extends</td>
+                            <td style="width: 25%;">native</td>
+                            <td style="width: 25%;">transient</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">case</td>
+                            <td style="width: 25%;">final</td>
+                            <td style="width: 25%;">new</td>
+                            <td style="width: 25%;">try</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">catch</td>
+                            <td style="width: 25%;">finally</td>
+                            <td style="width: 25%;">null</td>
+                            <td style="width: 25%;">typeof</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">char</td>
+                            <td style="width: 25%;">float</td>
+                            <td style="width: 25%;">package</td>
+                            <td style="width: 25%;">var</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">class</td>
+                            <td style="width: 25%;">for</td>
+                            <td style="width: 25%;">private</td>
+                            <td style="width: 25%;">void</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">const</td>
+                            <td style="width: 25%;">function</td>
+                            <td style="width: 25%;">protected</td>
+                            <td style="width: 25%;">volatile</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">continue</td>
+                            <td style="width: 25%;">goto</td>
+                            <td style="width: 25%;">public</td>
+                            <td style="width: 25%;">while</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">debugger</td>
+                            <td style="width: 25%;">if</td>
+                            <td style="width: 25%;">return</td>
+                            <td style="width: 25%;">with</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">default</td>
+                            <td style="width: 25%;">implements</td>
+                            <td style="width: 25%;">short</td>
+                            <td style="width: 25%;">yield</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">delete</td>
+                            <td style="width: 25%;">import</td>
+                            <td style="width: 25%;">static</td>
+                            <td style="width: 25%;">FALSE</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">do</td>
+                            <td style="width: 25%;">in</td>
+                            <td style="width: 25%;">super</td>
+                            <td style="width: 25%;">TRUE</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <h4>Scope</h4>
+                <p>Scope determines the accessibility of variables, objects, and functions from different parts of the
+                    code.</p>
+                <h5>Global Scope</h5>
+                <p>A variable declared outside a function, becomes <strong>GLOBAL&nbsp;</strong>. A global variable
+                    has global scope: All scripts and functions on a web page can access it.</p>
+
+                <h5>Local Scope</h5>
+                <p>Variables declared within a JavaScript function, become <strong>LOCAL&nbsp;</strong>to the function.
+                    Local variables have Function scope: They can only be accessed from within the function.</p>
+
+                <h4>Statements</h4>
+                <p>JavaScript has three types of statements:</p>
+                <ul>
+                    <li><strong>expression statement</strong> - a statement that consists entirely of an
+                        expression&nbsp;</li>
+                    <li><strong>block statement</strong> - a set of statements enclosed in braces { and }</li>
+                    <li><strong>keyword statements</strong> - begin with keywords such as var and if&nbsp;</li>
+                </ul>
+                <table style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td style="width: 50%; text-align: center;"><strong>Statement Name</strong></td>
+                            <td style="width: 50%; text-align: center;"><strong>Syntax</strong></td>
+                        </tr>
+                        <tr>
+                            <td>If-then</td>
+                            <td>if (<em>expr</em>) <em>stmt</em></td>
+                        </tr>
+                        <tr>
+                            <td>If-then-else</td>
+                            <td>if (<em>expr</em>) <em>stmt </em>else <em>stmt</em></td>
+                        </tr>
+                        <tr>
+                            <td>Do</td>
+                            <td>do <em>stmt </em>while (<em>expr</em>)</td>
+                        </tr>
+                        <tr>
+                            <td>While</td>
+                            <td>while (<em>expr</em>) <em>stmt</em></td>
+                        </tr>
+                        <tr>
+                            <td>For</td>
+                            <td>for (<em>part1&nbsp;</em>; <em>part2</em>; <em>part3</em>) <em>stmt</em></td>
+                        </tr>
+                        <tr>
+                            <td>Continue</td>
+                            <td>continue</td>
+                        </tr>
+                        <tr>
+                            <td>Break</td>
+                            <td>break</td>
+                        </tr>
+                        <tr>
+                            <td>Return-void</td>
+                            <td>return</td>
+                        </tr>
+                        <tr>
+                            <td>Return-value</td>
+                            <td>return <em>expr</em></td>
+                        </tr>
+                        <tr>
+                            <td>Switch</td>
+                            <td>switch (<em>expr</em>) {<em>cases</em>}</td>
+                        </tr>
+                        <tr>
+                            <td>Try</td>
+                            <td>try <em>try-block catch-part</em></td>
+                        </tr>
+                        <tr>
+                            <td>Throw</td>
+                            <td>throw <em>expr</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+<h4>Operator</h4>
+                <table style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td colspan="2" style="width: 99.8279%; text-align: center;"><strong>Comparison
+                                    operators</strong></td>
+                        </tr>
+                        <tr>
+                            <td>==</td>
+                            <td>Is equal to</td>
+                        </tr>
+                        <tr>
+                            <td>!=</td>
+                            <td>Is not equal to</td>
+                        </tr>
+                        <tr>
+                            <td>===</td>
+                            <td>Is identical to (equal to and of the same data type)</td>
+                        </tr>
+                        <tr>
+                            <td>!==</td>
+                            <td>Is not identical to</td>
+                        </tr>
+                        <tr>
+                            <td>&gt;&nbsp;</td>
+                            <td>Is greater than</td>
+                        </tr>
+                        <tr>
+                            <td>&gt;=</td>
+                            <td>Is greater than or equal to</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;</td>
+                            <td>Is less than</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;=</td>
+                            <td>Is less than or equal to</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <hr>
+        <a href="index.html">Week 02</a>
+        <p>Copyright&copy; 2020 | Portfolio | Lis Alves</p>
+    </div>
+</body>
+
+</html>

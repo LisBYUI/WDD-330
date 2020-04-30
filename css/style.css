@@ -16,7 +16,7 @@ body {
 }
 
 p {
-	padding: 0 0 20px 0;
+	padding: 0 0 5px 0;
 	line-height: 1.7em;
 }
 
@@ -48,7 +48,7 @@ h6 {
 }
 
 h2 {
-	font: normal 175% "Roboto", sans-serif;
+	font: bold 200% "Roboto", sans-serif;
 }
 
 h4,
@@ -212,7 +212,7 @@ ul#menu li.selected a:hover {
 #content {
 	text-align: left;
 	float: left;
-	width: 595px;
+	width: 800px;
 	padding: 0;
 }
 
@@ -251,3 +251,18 @@ ul#menu li.selected a:hover {
 	color: #35BDF5;
 	text-decoration: underline;
 }
+
+
+table
+{ margin: 10px 0 30px 0;}
+
+table tr th, table tr td
+{ background: #F5F5F5;
+  color: #111;
+  padding: 7px 4px;
+  text-align: left;}
+  
+table tr td
+{ background: #FBFBFB;
+  color: #111;
+  border-top: 1px solid #FFF;}
