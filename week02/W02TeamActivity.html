@@ -8,7 +8,7 @@
     <!-- main css -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
-
+    <script src="w02teamActivity.js"></script>
 </head>
 
 <body>
@@ -21,12 +21,28 @@
         </div>
         <div id="site_content">
             <div id="content">
-                <div id="menu">
-                    <ul>
-                        <li><a href="coreRequirements.html">Core Requirements</a></li>
-                        <li><a href="stretchGoals.html">Stretch Goals</a></li>
-                    </ul>
-                </div>
+                <input type="text" name="text" id="text" placeholder="Write something!">
+                <input type="text" name="number1" id="number1" placeholder="Enter a whole number">
+                <input type="text" name="number2" id="number2" placeholder="Enter a whole number">
+                <section>
+                    <input type="submit" name="displayText" onclick="displayText()" value="What did you say to me!?" />
+                    <input type="submit" name="GaussSum" onclick="displayGaussSum()" value="Sum all numbers to n" />
+                    <input type="submit" name="add" onclick="displaySum()" value="+" />
+                    <select id="operator">
+                        <option value="multiply">Multiply</option>
+                        <option value="divide">Divide</option>
+                        <option value="subtract">Subtract</option>
+                        <option value="add">Add</option>
+                    </select>
+                    <input type="submit" onclick="displayOperators()" Value="Calculate" />
+                    <input type="submit" onclick="callBackOperator()" value="Calculate Callback" />
+                </section>
+                <section>
+                    <div id="displayDiv">
+
+                    </div>
+                </section>
+
             </div>
         </div>
     </div>
