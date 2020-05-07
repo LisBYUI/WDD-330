@@ -21,11 +21,226 @@
             </div>
         </div>
         <div id="site_content">
-            <h2></h2>
-
+            <h2>Functions</h2>
             <hr>
             <div id="content">
+                <h3>Arrays, Logic, & Loops</h3>
+                <h4>Array literals</h4>
+                <p>An array is an ordered list of values. To create an array literal, simply write a pair
+                    of square brackets[]. Destructring of an array is the the concept of taking vales out a
+                    of an array and placing them as individual values. Destructuring of arrays allows us to
+                    assign multiple values at the same time. To retrieve a specific value in an aray, we write
+                    its position in the [] sq bracket called the index.(pg. 90) To <b>add values</b> to an
+                    array, place the string in the element. The index <b>notation </b> is used to add new items
+                    to a position w/in the index. Unused slots in the index have an <b>undefined</b> value.
+                </p>
 
+                <h4>Array methods</h4>
+                <p>Using the <b>length</b> property allows you to manually make change. Unused slots in the index
+                    have an <b>undefined</b> value.
+                </p>
+
+                <h4>Adding and removing values from arrays</h3>
+                    <p>To <b>add values</b> to an array, place the string in the element. The index <b>notation
+                        </b> is used to add new items to a position w/in the index. <br>To <b>remove</b> a value
+                        from an array literal use the <b>delete</b> operator. Remove the last item from an array using
+                        a <b>pop</b> method, while the <b>shift </b> method removes the first item. The <b>push</b>
+                        method adds a new values to the end of the array. The <b>concat</b> will merge an array w/
+                        other arrays. Some other methods are: <b>join, slicing, splicing, reverse, & sort,</b>
+                        Find a if a values is in an array use the <b>indexOf</b> method. The include method will return
+                        a boolean value if it has a particular element. It can be used to add an extra parameter to
+                        indicate which index to start the search.Multidementional arrays which contains an array of an
+                        array.
+                    </p>
+
+                    <h4>Sets</h4>
+                    <p><b>Sets</b> offer a useful way to keep track of data without having to check if any values have
+                        been duplicated. You create a set w/ the <b>new</b> operat and the <b>Set</b> constructor.
+                        You can add values using the <b>add</b> method. To see the contents of a set enter the name of
+                        the var that refers to it. The number of values in a set can be found using the <b>size()</b>
+                        method.Other set methods are <b>has(),delete(), clear(), new Set(), Array.form()</b> A set can
+                        be converted into an array by placing the set, along with the spread operator directly inside an
+                        array literal. Objs are store into set as long as the set exists, when the set is removed *+&
+                        the set remains it can cause a memory leak, known as garbage-collected. It should be corrected
+                        to prevent future problems.</p>
+
+                    <h4>Maps</h4>
+                    <p>Maps are a way of keeping a list of key & value pairs in other programming languages. (They are
+                        similiar to hashes, hash tables, & dictionaries). Maps can use any data type as a key. Use
+                        <b>size</b> propety to locate a number of key-value pairs. Create a map using the
+                        <b>new</b> operator & a <b>Map</b> constructor, & a <b>set()</b> method to add to your maps.
+                        Other methods used in maps are <b>get(), has(), delete(), clear(),</b> Maps can be converted
+                        into nested arrays of key-value pairs using the spread operator and like weak sets, weak maps
+                        can cause dead entries when the original obj is deleatd. Weak maps can use the <b>has(), get(),
+                            set(), and delete()</b> methods.
+                    </p>
+
+                    <h4>if and else logic statements</h4>
+                    <p>Logic statement allow you to control the flow of a program by running different blocks of code.
+                        The if runs a block of code <b>if</b> the confition in the () is true. The <b>else</b> statement
+                        adds an alternative block of code to run the condition if it's false. A quick way of writing an
+                        <b>if else </b> is to use the ternary operator <b>?</b> followed by at least 2 operands.
+                    </p>
+
+                    <h4>switch statements</h4>
+                    <p><b>Switch</b> statements consist of several <b>if</b> & <b>else</b> statemets making up a
+                        logical decision tree. Use switch statement when there are several conditions to test. Use a
+                        <b>case</b> keyword for ea. possible value and remember to end your statement w/ a
+                        <b>break</b> to end the execution of the statement.
+                    </p>
+
+
+                    <h4>while loops</h4>
+                    <p>What ever type of loop you run it's important that a condition is met or else your code
+                        will continue to run in a loop, this is known as an infinite loop. <b>While</b> loops runs a
+                        block of code continuously until a condition becomes true.
+                    </p>
+
+                    <h4>do … while loops</h4>
+                    <p><b>do while</b> loops is similiar to a while loop. The differences is that the conditions comes
+                        <i>after</i> the block code, regardless if the condition is true or not.
+                    </p>
+
+                    <h4> for loops</h4>
+                    <p>In <b>for</b> loops the initialization code is ran before the loop start. The condition
+                        has to be satisfied for the loop to continue The after code is what to do after ea. iteration of
+                        the loop, which is mostly used to increment a counter.
+                    </p>
+
+                    <h4>nested for loops</h4>
+                    <p>When a loop is placed inside of another loop this is a <b>nested loop</b>. It contains an inner
+                        loop that runs all the way through before the nest step of the outer loop occurs.
+                    </p>
+
+                    <h4>Iterating over a collection</h4>
+                    <p>A for loop can be used to iterate over each value in an array. If we take our avengers
+                        array example from earlier, we can create a for loop that outputs each item in the array. Maps
+                        are also enumerable, so it's also possible to loop over a map in a similar way to a set. he loop
+                        will iterate over each key-value pair in the same order as they were added to the map. Maps are
+                        also enumerable, so it's also possible to loop over a map in a similar way to a set. The loop
+                        will iterate over each key-value pair in the same order as they were added to the map.
+                    </p>
+                    <h3>Functions</h3>
+                    <h4>Function Declaration</h4>
+                    <p>To create a function we can use a <em>function declaration</em>.</p>
+                    <code>
+                        function name(parameters) {<br>
+                        &nbsp; ...body...<br>
+                        }
+                    </code>
+                    <p>The <em><strong>function </strong></em>keyword goes first, then goes <em><strong>the name of the
+                                function</strong></em>, then a <em><strong>list of parameters</strong></em> between the
+                        parentheses (comma-separated, empty in the example above) and finally the code of the function,
+                        also named &ldquo;the function body&rdquo;, between curly braces.
+                    </p>
+
+                    <h4>Local variables</h4>
+                    <p>A variable declared inside a function is only visible inside that function.</p>
+
+                    <h4>Invoking a function</h4>
+                    <p>There are a number of ways to define a function in JavaScript. Three of the most common are
+                        covered below. Define functions, using what is known as an arrow notation. To define a function
+                        literal we can use a <b>function</b> declaration: like so <b>function()</b> keyword. You can
+                        also define a function using an <b>expression</b> that assigns a function to a var
+                    </p>
+                    <code>
+                        const goodbye = function(){<br>
+                        console.log('Goodbye World!');<br>
+                    </code>
+                    <p>
+                        The 3rd way to define a function is w/ a constructor <b>Function()</b>, where it's entered as a
+                        string like so:</p>
+                    <code>const hi new Function('console.log("Hi World!");');</code>
+
+                    <p>It's recommend not to use this way because of <b>various problems</b>. Next you need to
+                        <b>invoke</b> a function inside of the funciton's body. This is done by entering
+                        it's name followed by ():
+                    </p>
+                    <code>
+                    hello();<br>
+                    'Hello world!'<br>
+                    </code>
+                    <p>FOOT NOTE:Don’t Repeat Yourself,or DRY, is a principle of programming that specifies that every
+                        part of a program should only be written once. This voids duplication and means there’s no need
+                        to keep multiple pieces of code up to date and in sync.</p>
+
+                    <h4>Return values</h4>
+                    <p>All functions return a value, which can be specified using the return statement, which comes
+                        after the <b>return</b> keyword. A function that doesn’t explicitly return anything (such as all
+                        the examples we have seen so far) will return <b>undefined</b> by default.
+                    </p>
+
+                    <h4>Parameters and arguments</h4>
+                    <p><b>Parameters</b> and <b>arguments</b> are terms that are often used interchangeably to represent
+                        values provided for the
+                        function as an input. There is a subtle difference though: any parameters a function needs are
+                        set
+                        when the function is defined.
+                        When a function isinvoked, it is provided with arguments. you can use a single parameter or
+                        several.
+                        If the parameter is empty
+                        it's <b>undefined</b> & an undefined parameter will return a <b>NaN</b>.When too many arguments
+                        are
+                        entered into a function we
+                        can either use a <b>mean()</b> function to calculate numbers or use the var <b>arguments</b> for
+                        multiple arguments. This acts
+                        like an array. However for BEST PRACTICE it's better to use a <b>rest</b> operator. We can use a
+                        rest parameter to improve our
+                        <b>mean()</b> function so it accepts any number of values. <b>default perameters</b> in a
+                        function
+                        are values that will
+                        be used by the function if no arguments are provided when it is invoked. To specify a default
+                        parameter, simply assign
+                        the default value to it in the function definition. <b>arrow =></b> syntax help make declaring
+                        functions more succinct
+                        using less verbose syntax. </p>
+                    <code>const square = x => x*x;<br>
+                    </code>
+
+                    <h4>Hoisting―variables and functions</h4>
+                    <p>Hoisting is the JavaScript interpreter’s action of moving all variable and function declarations
+                        to
+                        the top of the current scope,
+                        regardless of where they are defined. Functions that are defined using a function declaration
+                        are
+                        automatically hoisted, meaning
+                        they can be invoked before they have been defined. Use a <b>hoist()</b> to invoke a function.
+                        This
+                        allows you to all <b>function
+                            definitions</b> together at the end of the program. <b>variable hoisting</b> that use the
+                        var
+                        keyword are automatically moved to
+                        the top of the current scope. Variable assignment is not hoisted, however. This means that a
+                        variable assigned at the end of a
+                        function will have a value of undefined until the assignment is made. When using var hoist, use
+                        <b>const</b> & <b>let</b> to
+                        delcare variable at the beginning of a block so hoisting is unnessary.</p>
+
+                    <h4>Callbacks―functions as a parameter</h4>
+                    <p>Functions can also be given as a parameter to another function. A function that is passed as an
+                        argument to another is known as a <b>callback</b>.Callback functions are made more flexible
+                        using the callback parameter.
+                    </p>
+                    <code>
+                        function
+                        sing(song,callback) {<br>
+                        console.log(`I'm singing along to ${song}.);<br>
+                        callback();<br>
+                    </code>
+                    <p>The actual callback is invoked in the body of the function where the () are used. You can sort
+                        arrays w/ a <b>sort()</b> method using a callback. You can also do this with a <b>numericallys
+                            function</b> and the sort() to sort numbers. An <b>array iterator</b> uses several ways to
+                        use callbacks, making them more flexible. It also uses the arrow notation in many of the
+                        callback methods. The <b>foreEach()</b> to loop through multiple values, the <b>map()</b> method
+                        to iterate through an array, so forces the callback function as a parameter that invokes the
+                        items in an array. Other methods used are: <b> Reduce() & filter()</b>. The <b>mean()</b>
+                        function can be added to the reduce() method to add up all the values provided in an argument.
+                    </p>
+                    <p>A callback function is passed as an argument into another function. It contains a string of code.
+                        You call the function by naming it, & it's followed by ( ), this tells the function to execute
+                        the code in thee ( ). The argument consist of a method that has an event(onclick) & a function
+                        of (whatToDo). The addEventListener method executes the function only when an event occurs.
+                    </p>
             </div>
         </div>
     </div>
