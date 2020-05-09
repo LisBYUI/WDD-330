@@ -40,207 +40,591 @@
                     have an <b>undefined</b> value.
                 </p>
 
-                <h4>Adding and removing values from arrays</h3>
-                    <p>To <b>add values</b> to an array, place the string in the element. The index <b>notation
-                        </b> is used to add new items to a position w/in the index. <br>To <b>remove</b> a value
-                        from an array literal use the <b>delete</b> operator. Remove the last item from an array using
-                        a <b>pop</b> method, while the <b>shift </b> method removes the first item. The <b>push</b>
-                        method adds a new values to the end of the array. The <b>concat</b> will merge an array w/
-                        other arrays. Some other methods are: <b>join, slicing, splicing, reverse, & sort,</b>
-                        Find a if a values is in an array use the <b>indexOf</b> method. The include method will return
-                        a boolean value if it has a particular element. It can be used to add an extra parameter to
-                        indicate which index to start the search.Multidementional arrays which contains an array of an
-                        array.
-                    </p>
+                <h4>Adding and removing values from arrays</h4>
+                <p>To <b>add values</b> to an array, place the string in the element. The index <b>notation
+                    </b> is used to add new items to a position w/in the index. <br>To <b>remove</b> a value
+                    from an array literal use the <b>delete</b> operator. Remove the last item from an array using
+                    a <b>pop</b> method, while the <b>shift </b> method removes the first item. The <b>push</b>
+                    method adds a new values to the end of the array. The <b>concat</b> will merge an array w/
+                    other arrays. Some other methods are: <b>join, slicing, splicing, reverse, & sort,</b>
+                    Find a if a values is in an array use the <b>indexOf</b> method. The include method will return
+                    a boolean value if it has a particular element. It can be used to add an extra parameter to
+                    indicate which index to start the search.Multidementional arrays which contains an array of an
+                    array.
+                </p>
 
-                    <h4>Sets</h4>
-                    <p><b>Sets</b> offer a useful way to keep track of data without having to check if any values have
-                        been duplicated. You create a set w/ the <b>new</b> operat and the <b>Set</b> constructor.
-                        You can add values using the <b>add</b> method. To see the contents of a set enter the name of
-                        the var that refers to it. The number of values in a set can be found using the <b>size()</b>
-                        method.Other set methods are <b>has(),delete(), clear(), new Set(), Array.form()</b> A set can
-                        be converted into an array by placing the set, along with the spread operator directly inside an
-                        array literal. Objs are store into set as long as the set exists, when the set is removed *+&
-                        the set remains it can cause a memory leak, known as garbage-collected. It should be corrected
-                        to prevent future problems.</p>
+                <h4>Sets</h4>
+                <p><b>Sets</b> offer a useful way to keep track of data without having to check if any values have
+                    been duplicated. You create a set w/ the <b>new</b> operat and the <b>Set</b> constructor.
+                    You can add values using the <b>add</b> method. To see the contents of a set enter the name of
+                    the var that refers to it. The number of values in a set can be found using the <b>size()</b>
+                    method.Other set methods are <b>has(),delete(), clear(), new Set(), Array.form()</b> A set can
+                    be converted into an array by placing the set, along with the spread operator directly inside an
+                    array literal. Objs are store into set as long as the set exists, when the set is removed *+&
+                    the set remains it can cause a memory leak, known as garbage-collected. It should be corrected
+                    to prevent future problems.</p>
 
-                    <h4>Maps</h4>
-                    <p>Maps are a way of keeping a list of key & value pairs in other programming languages. (They are
-                        similiar to hashes, hash tables, & dictionaries). Maps can use any data type as a key. Use
-                        <b>size</b> propety to locate a number of key-value pairs. Create a map using the
-                        <b>new</b> operator & a <b>Map</b> constructor, & a <b>set()</b> method to add to your maps.
-                        Other methods used in maps are <b>get(), has(), delete(), clear(),</b> Maps can be converted
-                        into nested arrays of key-value pairs using the spread operator and like weak sets, weak maps
-                        can cause dead entries when the original obj is deleatd. Weak maps can use the <b>has(), get(),
-                            set(), and delete()</b> methods.
-                    </p>
+                <h4>Maps</h4>
+                <p>Maps are a way of keeping a list of key & value pairs in other programming languages. (They are
+                    similiar to hashes, hash tables, & dictionaries). Maps can use any data type as a key. Use
+                    <b>size</b> propety to locate a number of key-value pairs. Create a map using the
+                    <b>new</b> operator & a <b>Map</b> constructor, & a <b>set()</b> method to add to your maps.
+                    Other methods used in maps are <b>get(), has(), delete(), clear(),</b> Maps can be converted
+                    into nested arrays of key-value pairs using the spread operator and like weak sets, weak maps
+                    can cause dead entries when the original obj is deleatd. Weak maps can use the <b>has(), get(),
+                        set(), and delete()</b> methods.
+                </p>
 
-                    <h4>if and else logic statements</h4>
-                    <p>Logic statement allow you to control the flow of a program by running different blocks of code.
-                        The if runs a block of code <b>if</b> the confition in the () is true. The <b>else</b> statement
-                        adds an alternative block of code to run the condition if it's false. A quick way of writing an
-                        <b>if else </b> is to use the ternary operator <b>?</b> followed by at least 2 operands.
-                    </p>
+                <h4>if and else logic statements</h4>
+                <p>Logic statement allow you to control the flow of a program by running different blocks of code.
+                    The if runs a block of code <b>if</b> the confition in the () is true. The <b>else</b> statement
+                    adds an alternative block of code to run the condition if it's false. A quick way of writing an
+                    <b>if else </b> is to use the ternary operator <b>?</b> followed by at least 2 operands.
+                </p>
 
-                    <h4>switch statements</h4>
-                    <p><b>Switch</b> statements consist of several <b>if</b> & <b>else</b> statemets making up a
-                        logical decision tree. Use switch statement when there are several conditions to test. Use a
-                        <b>case</b> keyword for ea. possible value and remember to end your statement w/ a
-                        <b>break</b> to end the execution of the statement.
-                    </p>
+                <h4>switch statements</h4>
+                <p><b>Switch</b> statements consist of several <b>if</b> & <b>else</b> statemets making up a
+                    logical decision tree. Use switch statement when there are several conditions to test. Use a
+                    <b>case</b> keyword for ea. possible value and remember to end your statement w/ a
+                    <b>break</b> to end the execution of the statement.
+                </p>
 
 
-                    <h4>while loops</h4>
-                    <p>What ever type of loop you run it's important that a condition is met or else your code
-                        will continue to run in a loop, this is known as an infinite loop. <b>While</b> loops runs a
-                        block of code continuously until a condition becomes true.
-                    </p>
+                <h4>while loops</h4>
+                <p>What ever type of loop you run it's important that a condition is met or else your code
+                    will continue to run in a loop, this is known as an infinite loop. <b>While</b> loops runs a
+                    block of code continuously until a condition becomes true.
+                </p>
 
-                    <h4>do … while loops</h4>
-                    <p><b>do while</b> loops is similiar to a while loop. The differences is that the conditions comes
-                        <i>after</i> the block code, regardless if the condition is true or not.
-                    </p>
+                <h4>do … while loops</h4>
+                <p><b>do while</b> loops is similiar to a while loop. The differences is that the conditions comes
+                    <i>after</i> the block code, regardless if the condition is true or not.
+                </p>
 
-                    <h4> for loops</h4>
-                    <p>In <b>for</b> loops the initialization code is ran before the loop start. The condition
-                        has to be satisfied for the loop to continue The after code is what to do after ea. iteration of
-                        the loop, which is mostly used to increment a counter.
-                    </p>
+                <h4> for loops</h4>
+                <p>In <b>for</b> loops the initialization code is ran before the loop start. The condition
+                    has to be satisfied for the loop to continue The after code is what to do after ea. iteration of
+                    the loop, which is mostly used to increment a counter.
+                </p>
 
-                    <h4>nested for loops</h4>
-                    <p>When a loop is placed inside of another loop this is a <b>nested loop</b>. It contains an inner
-                        loop that runs all the way through before the nest step of the outer loop occurs.
-                    </p>
+                <h4>nested for loops</h4>
+                <p>When a loop is placed inside of another loop this is a <b>nested loop</b>. It contains an inner
+                    loop that runs all the way through before the nest step of the outer loop occurs.
+                </p>
 
-                    <h4>Iterating over a collection</h4>
-                    <p>A for loop can be used to iterate over each value in an array. If we take our avengers
-                        array example from earlier, we can create a for loop that outputs each item in the array. Maps
-                        are also enumerable, so it's also possible to loop over a map in a similar way to a set. he loop
-                        will iterate over each key-value pair in the same order as they were added to the map. Maps are
-                        also enumerable, so it's also possible to loop over a map in a similar way to a set. The loop
-                        will iterate over each key-value pair in the same order as they were added to the map.
-                    </p>
-                    <h3>Functions</h3>
-                    <h4>Function Declaration</h4>
-                    <p>To create a function we can use a <em>function declaration</em>.</p>
-                    <code>
+                <h4>Iterating over a collection</h4>
+                <p>A for loop can be used to iterate over each value in an array. If we take our avengers
+                    array example from earlier, we can create a for loop that outputs each item in the array. Maps
+                    are also enumerable, so it's also possible to loop over a map in a similar way to a set. he loop
+                    will iterate over each key-value pair in the same order as they were added to the map. Maps are
+                    also enumerable, so it's also possible to loop over a map in a similar way to a set. The loop
+                    will iterate over each key-value pair in the same order as they were added to the map.
+                </p>
+                <h3>Functions</h3>
+                <h4>Function Declaration</h4>
+                <p>To create a function we can use a <em>function declaration</em>.</p>
+                <code>
                         function name(parameters) {<br>
                         &nbsp; ...body...<br>
                         }
                     </code>
-                    <p>The <em><strong>function </strong></em>keyword goes first, then goes <em><strong>the name of the
-                                function</strong></em>, then a <em><strong>list of parameters</strong></em> between the
-                        parentheses (comma-separated, empty in the example above) and finally the code of the function,
-                        also named &ldquo;the function body&rdquo;, between curly braces.
-                    </p>
+                <p>The <em><strong>function </strong></em>keyword goes first, then goes <em><strong>the name of the
+                            function</strong></em>, then a <em><strong>list of parameters</strong></em> between the
+                    parentheses (comma-separated, empty in the example above) and finally the code of the function,
+                    also named &ldquo;the function body&rdquo;, between curly braces.
+                </p>
 
-                    <h4>Local variables</h4>
-                    <p>A variable declared inside a function is only visible inside that function.</p>
+                <h4>Local variables</h4>
+                <p>A variable declared inside a function is only visible inside that function.</p>
 
-                    <h4>Invoking a function</h4>
-                    <p>There are a number of ways to define a function in JavaScript. Three of the most common are
-                        covered below. Define functions, using what is known as an arrow notation. To define a function
-                        literal we can use a <b>function</b> declaration: like so <b>function()</b> keyword. You can
-                        also define a function using an <b>expression</b> that assigns a function to a var
-                    </p>
-                    <code>
+                <h4>Invoking a function</h4>
+                <p>There are a number of ways to define a function in JavaScript. Three of the most common are
+                    covered below. Define functions, using what is known as an arrow notation. To define a function
+                    literal we can use a <b>function</b> declaration: like so <b>function()</b> keyword. You can
+                    also define a function using an <b>expression</b> that assigns a function to a var
+                </p>
+                <code>
                         const goodbye = function(){<br>
                         console.log('Goodbye World!');<br>
                     </code>
-                    <p>
-                        The 3rd way to define a function is w/ a constructor <b>Function()</b>, where it's entered as a
-                        string like so:</p>
-                    <code>const hi new Function('console.log("Hi World!");');</code>
+                <p>
+                    The 3rd way to define a function is w/ a constructor <b>Function()</b>, where it's entered as a
+                    string like so:</p>
+                <code>const hi new Function('console.log("Hi World!");');</code>
 
-                    <p>It's recommend not to use this way because of <b>various problems</b>. Next you need to
-                        <b>invoke</b> a function inside of the funciton's body. This is done by entering
-                        it's name followed by ():
-                    </p>
-                    <code>
+                <p>It's recommend not to use this way because of <b>various problems</b>. Next you need to
+                    <b>invoke</b> a function inside of the funciton's body. This is done by entering
+                    it's name followed by ():
+                </p>
+                <code>
                     hello();<br>
                     'Hello world!'<br>
                     </code>
-                    <p>FOOT NOTE:Don’t Repeat Yourself,or DRY, is a principle of programming that specifies that every
-                        part of a program should only be written once. This voids duplication and means there’s no need
-                        to keep multiple pieces of code up to date and in sync.</p>
+                <p>FOOT NOTE:Don’t Repeat Yourself,or DRY, is a principle of programming that specifies that every
+                    part of a program should only be written once. This voids duplication and means there’s no need
+                    to keep multiple pieces of code up to date and in sync.</p>
 
-                    <h4>Return values</h4>
-                    <p>All functions return a value, which can be specified using the return statement, which comes
-                        after the <b>return</b> keyword. A function that doesn’t explicitly return anything (such as all
-                        the examples we have seen so far) will return <b>undefined</b> by default.
-                    </p>
+                <h4>Return values</h4>
+                <p>All functions return a value, which can be specified using the return statement, which comes
+                    after the <b>return</b> keyword. A function that doesn’t explicitly return anything (such as all
+                    the examples we have seen so far) will return <b>undefined</b> by default.
+                </p>
 
-                    <h4>Parameters and arguments</h4>
-                    <p><b>Parameters</b> and <b>arguments</b> are terms that are often used interchangeably to represent
-                        values provided for the
-                        function as an input. There is a subtle difference though: any parameters a function needs are
-                        set
-                        when the function is defined.
-                        When a function isinvoked, it is provided with arguments. you can use a single parameter or
-                        several.
-                        If the parameter is empty
-                        it's <b>undefined</b> & an undefined parameter will return a <b>NaN</b>.When too many arguments
-                        are
-                        entered into a function we
-                        can either use a <b>mean()</b> function to calculate numbers or use the var <b>arguments</b> for
-                        multiple arguments. This acts
-                        like an array. However for BEST PRACTICE it's better to use a <b>rest</b> operator. We can use a
-                        rest parameter to improve our
-                        <b>mean()</b> function so it accepts any number of values. <b>default perameters</b> in a
-                        function
-                        are values that will
-                        be used by the function if no arguments are provided when it is invoked. To specify a default
-                        parameter, simply assign
-                        the default value to it in the function definition. <b>arrow =></b> syntax help make declaring
-                        functions more succinct
-                        using less verbose syntax. </p>
-                    <code>const square = x => x*x;<br>
+                <h4>Parameters and arguments</h4>
+                <p><b>Parameters</b> and <b>arguments</b> are terms that are often used interchangeably to represent
+                    values provided for the
+                    function as an input. There is a subtle difference though: any parameters a function needs are
+                    set
+                    when the function is defined.
+                    When a function isinvoked, it is provided with arguments. you can use a single parameter or
+                    several.
+                    If the parameter is empty
+                    it's <b>undefined</b> & an undefined parameter will return a <b>NaN</b>.When too many arguments
+                    are
+                    entered into a function we
+                    can either use a <b>mean()</b> function to calculate numbers or use the var <b>arguments</b> for
+                    multiple arguments. This acts
+                    like an array. However for BEST PRACTICE it's better to use a <b>rest</b> operator. We can use a
+                    rest parameter to improve our
+                    <b>mean()</b> function so it accepts any number of values. <b>default perameters</b> in a
+                    function
+                    are values that will
+                    be used by the function if no arguments are provided when it is invoked. To specify a default
+                    parameter, simply assign
+                    the default value to it in the function definition. <b>arrow =></b> syntax help make declaring
+                    functions more succinct
+                    using less verbose syntax. </p>
+                <code>const square = x => x*x;<br>
                     </code>
 
-                    <h4>Hoisting―variables and functions</h4>
-                    <p>Hoisting is the JavaScript interpreter’s action of moving all variable and function declarations
-                        to
-                        the top of the current scope,
-                        regardless of where they are defined. Functions that are defined using a function declaration
-                        are
-                        automatically hoisted, meaning
-                        they can be invoked before they have been defined. Use a <b>hoist()</b> to invoke a function.
-                        This
-                        allows you to all <b>function
-                            definitions</b> together at the end of the program. <b>variable hoisting</b> that use the
-                        var
-                        keyword are automatically moved to
-                        the top of the current scope. Variable assignment is not hoisted, however. This means that a
-                        variable assigned at the end of a
-                        function will have a value of undefined until the assignment is made. When using var hoist, use
-                        <b>const</b> & <b>let</b> to
-                        delcare variable at the beginning of a block so hoisting is unnessary.</p>
+                <h4>Hoisting―variables and functions</h4>
+                <p>Hoisting is the JavaScript interpreter’s action of moving all variable and function declarations
+                    to the top of the current scope, regardless of where they are defined. Functions that are defined
+                    using a function declaration are automatically hoisted, meaning they can be invoked before they have
+                    been defined. Use a <b>hoist()</b> to invoke a function. This allows you to all <b>function
+                        definitions</b> together at the end of the program. <b>variable hoisting</b> that use the var
+                    keyword are automatically moved to the top of the current scope.
+                    Variable assignment is not hoisted, made. When using var hoist, use <b>const</b> & <b>let</b> to
+                    delcare variable at the beginning of a
+                    block so hoisting is unnessary.
+                </p>
 
-                    <h4>Callbacks―functions as a parameter</h4>
-                    <p>Functions can also be given as a parameter to another function. A function that is passed as an
-                        argument to another is known as a <b>callback</b>.Callback functions are made more flexible
-                        using the callback parameter.
-                    </p>
-                    <code>
+                <h4>Callbacks―functions as a parameter</h4>
+                <p>Functions can also be given as a parameter to another function. A function that is passed as an
+                    argument to another is known as a <b>callback</b>.Callback functions are made more flexible
+                    using the callback parameter.
+                </p>
+                <code>
                         function
                         sing(song,callback) {<br>
                         console.log(`I'm singing along to ${song}.);<br>
                         callback();<br>
                     </code>
-                    <p>The actual callback is invoked in the body of the function where the () are used. You can sort
-                        arrays w/ a <b>sort()</b> method using a callback. You can also do this with a <b>numericallys
-                            function</b> and the sort() to sort numbers. An <b>array iterator</b> uses several ways to
-                        use callbacks, making them more flexible. It also uses the arrow notation in many of the
-                        callback methods. The <b>foreEach()</b> to loop through multiple values, the <b>map()</b> method
-                        to iterate through an array, so forces the callback function as a parameter that invokes the
-                        items in an array. Other methods used are: <b> Reduce() & filter()</b>. The <b>mean()</b>
-                        function can be added to the reduce() method to add up all the values provided in an argument.
-                    </p>
-                    <p>A callback function is passed as an argument into another function. It contains a string of code.
-                        You call the function by naming it, & it's followed by ( ), this tells the function to execute
-                        the code in thee ( ). The argument consist of a method that has an event(onclick) & a function
-                        of (whatToDo). The addEventListener method executes the function only when an event occurs.
-                    </p>
+                <p>The actual callback is invoked in the body of the function where the () are used. You can sort
+                    arrays w/ a <b>sort()</b> method using a callback. You can also do this with a <b>numericallys
+                        function</b> and the sort() to sort numbers. An <b>array iterator</b> uses several ways to
+                    use callbacks, making them more flexible. It also uses the arrow notation in many of the
+                    callback methods. The <b>foreEach()</b> to loop through multiple values, the <b>map()</b> method
+                    to iterate through an array, so forces the callback function as a parameter that invokes the
+                    items in an array. Other methods used are: <b> Reduce() & filter()</b>. The <b>mean()</b>
+                    function can be added to the reduce() method to add up all the values provided in an argument.
+                </p>
+                <p>A callback function is passed as an argument into another function. It contains a string of code.
+                    You call the function by naming it, & it's followed by ( ), this tells the function to execute
+                    the code in thee ( ). The argument consist of a method that has an event(onclick) & a function
+                    of (whatToDo). The addEventListener method executes the function only when an event occurs.
+                </p>
+
+                <h3>Object Methods: this</h3>
+                <p>
+                    In JavaScript, some words that perform special function are reserved. One of those keyword is
+                    <code>this</code>, which appears in many JavaScript frameworks such as Vue, jQuery, and others.
+                    <code>this</code> value changes depending on where it is called. The six different ways for
+                    assigning new values for <code>this</code> are:
+                    <ol>
+                        <li><code>this</code> in global context</li>
+                        <li><code>this</code> in object construction</li>
+                        <li><code>this</code> in object method</li>
+                        <li><code>this</code> in simple function</li>
+                        <li><code>this</code> in arrow function</li>
+                        <li><code>this</code> in event listner</li>
+                    </ol>
+                </p>
+
+                <p>
+                    JavaScript objects are collections of key-value pairs that are placed inside curly braces
+                    <code>{}.</code> A JavaScript object is define with the following syntax:
+                    <code>const myInfo = {name: 'Sunday', gender: 'Male', birthYear: '1981'}.</code> The properties
+                    of an object can be accessed using either the dot notation or square bracket notation.
+                </p>
+
+                <p>
+                    The Document Object Model (DOM) can be described as a representation of a HTML page as a tree of
+                    nodes. TO access the value of elements on a HTML page, the following could be used:
+                    <code>document.getElementById()</code>, <code>document.getElementsByClassName()</code>,
+                    <code>document.getElementsByTagNames()</code>, and <code>document.querySelector()</code>.
+                </p>
+
+                <h3>Objects</h3>
+                <h4>Object literals</h4>
+                <p>An object literal is an object that is created directly in the language by wrapping all its
+                    properties and methods in curly braces {} . Object literals are a distinguishing feature of the
+                    JavaScript language, as they allow objects to be created quickly without the need for defining a
+                    class. They also provide a useful way of organizing your code without polluting the global
+                    namespace.
+                </p>
+                <code>"const superman = {<br>
+                        name: 'Superman',<br>
+                        'real name': 'Clark Kent',<br>
+                        height: 75,<br>
+                        weight: 235,<br>
+                        hero: true,<br>
+                        villain: false,<br>
+                        allies: ['Batman','Supergirl','Superboy'],<br>
+                        fly() {<br>
+                        return 'Up, up and away!';<br>
+                        }<br>
+                        };
+                    </code>
+
+                <h4>Adding properties to objects</h4>
+                <p>New properties and methods can be added to objects at any time in a program. This is done by
+                    simply assigning a value to the new property. For example, if we wanted to add a new city
+                    property to our superman object, we would do it like so:
+                </p>
+                <code>superman.city = 'Metropolis';<br>
+                        << 'Metropolis' <br>Changing properties<br>superman['real name'] = 'Kal-El';<br>
+                            << 'Kal-El' <br>to delete<br>delete superman.fly<br>Nesting Objects<br>const jla = {
+                                superman: { realName: 'Clark Kent' },<br>
+                                batman: { realName: 'Bruce Wayne' },<br>
+                                wonderWoman: { realName: 'Diana Prince" },<br>
+                                flash: { realName: 'Barry Allen' },<br>
+                                aquaman: { realName: 'Arthur Curry' },<br>
+                                }
+                            </code>
+
+                <h4>Object methods</h4>>
+                <p> An object literal can be passed as a parameter to a function. This is useful
+                    when there are a large number of parameters, as it allows the arguments to be
+                    provided by name and in any order. This means you don't have to remember the
+                    order to enter them when invoking a function. Using a function called greet() . This accepts
+                    three parameters:
+                </p>
+                <code>
+                    function greet({greeting,name,age}) {<br>
+                    return `${greeting}! My name is ${name} and I am ${age} years old.`;<br>
+                    }</code>
+                <p>To demonstrate using <em>this</em> , we'll create a dice object that has a sides property
+                    and a roll() method that returns a number between 1 and the number of sides.
+                    Here’s the code to create our dice object:
+                </p>
+                <code>
+                    const dice = {<br>
+                    sides: 6,<br>
+                    roll() {
+                    return Math.floor(this.sides * Math.random()) + 1;<br>
+                    }<br>
+                    }
+                </code>
+
+                <h3>JSON</h3>
+                <p>JavaScript Object Notation, or JSON, was invented by Douglas Crockford in 2001. It is an
+                    extremely popular lightweight data-storage format that is used by a large number of services for
+                    data serialization and configuration. It is often used to exchange information between web
+                    services, and is employed by sites such as Twitter, Facebook and Trello to share information.
+                    The beauty of JSON is that it manages to hit the sweet spot between being both human- and
+                    machine-readable.
+                </p>
+                <p>
+                    JSON is a string representation of the object literal notation that we have just seen. There
+                    are, however, a couple of key differences:
+                </p>
+                <ol>
+                    <li>Property names must be double-quoted</li>
+                    <li>Permitted values are double-quoted strings, numbers, true, false, null, arrays and
+                        objects</li>
+                    <li>Functions are not permitted values</li>
+                </ol>
+                <p>
+                    The parse() method takes a string of data in JSON format and returns a JavaScript object:<br>
+                </p>
+                <code>
+                JSON.parse(batman);<br>
+                << { name: 'Batman' ,<br>
+                    'real name': 'Bruce Wayne',<br>
+                    height: 74,<br>
+                    weight: 210,<br>
+                    hero: true,<br>
+                    villain: false,<br>
+                    allies: [ 'Robin', 'Batgirl', 'Superman' ] }
+                </code>
+                <p>The stringify() method does the opposite, taking a JavaScript object and returning a string of JSON
+                    data
+                </p>
+
+                <h3>The Math object</h3>
+                <p>The Math object is used to perform mathematical operations on numbers. There are many math object
+                    properties which are listed below:
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>PROPERTY</th>
+                            <th>DESCRIPTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Math.E</td>
+                            <td>Euler&rsquo;s number</td>
+                        </tr>
+                        <tr>
+                            <td>Math.PI</td>
+                            <td>PI</td>
+                        </tr>
+                        <tr>
+                            <td>Math.SQRT2</td>
+                            <td>The square root of 2</td>
+                        </tr>
+                        <tr>
+                            <td>Math.SQRT1_2</td>
+                            <td>The square root of 1/2</td>
+                        </tr>
+                        <tr>
+                            <td>Math.LN2</td>
+                            <td>The natural logarithm of 2</td>
+                        </tr>
+                        <tr>
+                            <td>Math.LN10</td>
+                            <td>The natural logarithm of 10</td>
+                        </tr>
+                        <tr>
+                            <td>Math.LOG2E</td>
+                            <td>Base 2 logarithm of E</td>
+                        </tr>
+                        <tr>
+                            <td>Math.LOG10E</td>
+                            <td>Base 10 logarithm of E</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>There are many math objects exists in JavaScript which are listed below:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>PROPERTY</th>
+                            <th>DESCRIPTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>abs(x)</td>
+                            <td>Absolute value of x</td>
+                        </tr>
+                        <tr>
+                            <td>acos(x)</td>
+                            <td>Arccosine of x, in radian</td>
+                        </tr>
+                        <tr>
+                            <td>asin(x)</td>
+                            <td>Arcsine of x, in radian</td>
+                        </tr>
+                        <tr>
+                            <td>atan(x)</td>
+                            <td>Arctangent of x, a numeric value between -PI/2 and PI/2 radian</td>
+                        </tr>
+                        <tr>
+                            <td>atan2(y, x)</td>
+                            <td>Arctangent of the quotient of its arguments</td>
+                        </tr>
+                        <tr>
+                            <td>ceil(x)</td>
+                            <td>Value of x rounded up to the nearest integer</td>
+                        </tr>
+                        <tr>
+                            <td>cos(x)</td>
+                            <td>Cosine of x (x in radians)</td>
+                        </tr>
+                        <tr>
+                            <td>exp()</td>
+                            <td>Value of E^x</td>
+                        </tr>
+                        <tr>
+                            <td>floor()</td>
+                            <td>Value of x rounded below to the nearest integer</td>
+                        </tr>
+                        <tr>
+                            <td>log()</td>
+                            <td>Natural logarithm (base E) of x</td>
+                        </tr>
+                        <tr>
+                            <td>max(a, b, &hellip;)</td>
+                            <td>Highest value</td>
+                        </tr>
+                        <tr>
+                            <td>min(a, b, &hellip;)</td>
+                            <td>Lowest value</td>
+                        </tr>
+                        <tr>
+                            <td>pow(x, y)</td>
+                            <td>Value of x to power of y</td>
+                        </tr>
+                        <tr>
+                            <td>random()</td>
+                            <td>Random number between 0 and 1</td>
+                        </tr>
+                        <tr>
+                            <td>round(x)</td>
+                            <td>Value of x rounded to the nearest integer</td>
+                        </tr>
+                        <tr>
+                            <td>sin(x)</td>
+                            <td>Sine of x (x in radians)</td>
+                        </tr>
+                        <tr>
+                            <td>sqrt(x)</td>
+                            <td>Square root of x</td>
+                        </tr>
+                        <tr>
+                            <td>tan(x)</td>
+                            <td>Tangent of angle</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>The Date object</h3>
+                <p>Date methods let you get and set date values (years, months, days, hours, minutes, seconds,
+                    milliseconds)</p>
+                <p>Get methods are used for getting a part of a date. </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>getDate()</td>
+                            <td>Get the day as a number (1-31)</td>
+                        </tr>
+                        <tr>
+                            <td>getDay()</td>
+                            <td>Get the weekday as a number (0-6)</td>
+                        </tr>
+                        <tr>
+                            <td>getFullYear()</td>
+                            <td>Get the four digit year (yyyy)</td>
+                        </tr>
+                        <tr>
+                            <td>getHours()</td>
+                            <td>Get the hour (0-23)</td>
+                        </tr>
+                        <tr>
+                            <td>getMilliseconds()</td>
+                            <td>Get the milliseconds (0-999)</td>
+                        </tr>
+                        <tr>
+                            <td>getMinutes()</td>
+                            <td>Get the minutes (0-59)</td>
+                        </tr>
+                        <tr>
+                            <td>getMonth()</td>
+                            <td>Get the month (0-11)</td>
+                        </tr>
+                        <tr>
+                            <td>getSeconds()</td>
+                            <td>Get the seconds (0-59)</td>
+                        </tr>
+                        <tr>
+                            <td>getTime()</td>
+                            <td>Get the time (milliseconds since January 1, 1970)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>The RegExp object</h3>
+
+                <p>A regular expression (or RegExp, for short) is a pattern that can be used to search strings for
+                    matches to the pattern. A common use is 'find and replace' type operations. For example, say you
+                    were looking for any word ending in 'ing', you could use the regular expression /[a-zA-Z]+ing$/
+                    .</p>
+                <h4>RegExp</h4>
+                <ul>
+                    <li>. matches any character, except line breaks</li>
+                    <li>\w matches any word character, and is equivalent to [A-Za-z0-9_]</li>
+                    <li> \W matches any non-word character, and is equivalent to [\^A-Za-z0-9_]</li>
+                    <li>\d matches any digit character, and is equivalent to [0-9]</li>
+                    <li>\D matches any non-digit character, and is equivalent to [^0-9]</li>
+                    <li>\s matches any whitespace character, and is equivalent to [ \t\r\n\f]</li>
+                </ul>
+
+                <h4>Modifiers</h4>
+                <ul>
+                    <li> ? makes the preceding token in the regular expression optional</li>
+                    <li> * matches one or more occurrences of the preceding token</li>
+                    <li> + matches one or more occurrences of the preceding token</li>
+                    <li> {n} matchesnoccurrences of the preceding token</li>
+                    <li> {n,} matches at leastnoccurrences of the pattern</li>
+                    <li> {,m} matches at mostmoccurrences of the preceding token</li>
+                    <li> {n,m} matches at leastnand at mostmoccurrences of the preceding token</li>
+                    <li> ^ marks the position immediately before the first character in the string</li>
+                    <li> $ marks the position immediately after the last character in the string</li>
+                </ul>
+
+                <h3>Document Object Model</h3>
+                <p>
+                    There are some methods from DOM Level 0 that can still be employed to access commonly used
+                    elements. These include:
+                </p>
+                <ul>
+                    <li> Document.body returns the body element of a web page.</li>
+                    <li> Document.images returns a node list of all the images contained in the document.
+                    </li>
+                    <li> Document.links returns a node list of all the &lt a &gt elements and &lt area &gt
+                        elements that have an href attribute.</li>
+                    <li> Document.anchors returns a node list of all the &lt a &gt elements that have a name
+                        attribute.</li>
+                    <li> Document.forms returns a node list of all the forms in the document.</li>
+                </ul>
+                <h4>getElementsBy</h4>
+                <ul>
+                    <li><code>getElementById()</code> method does exactly what it says on the tin. It returns a
+                        reference to the element with a unique id attribute that is given as an argument.
+                    </li>
+                    <li>
+                        <code>getElementsByTagName()</code> will return a live node list of all the elements with
+                        the tag name that is provided as an argument.
+                    </li>
+                    <li>
+                        <code>getElementsByClassName()</code> will return a live node list of all elements that have
+                        the class name that is supplied as an argument.
+                    </li>
+                </ul>
+                <h4>Query Selectors </h4>
+                <ul>
+                    <li>
+                        <code>document.querySelector()</code> method allows you to use CSS notation to find the
+                        first element in the document that matches that matches a CSS selector provided as an
+                        argument.
+                    </li>
+                    <li>
+                        <code>document.querySelectorAll()</code> method also uses CSS notation but returns a node
+                        list of all the elements in the document that match the CSS query selector. If no elements
+                        match, it will return an empty node list.
+
+                    </li>
+                </ul>
+                <h4>Getting and Setting Attributes</h4>
+                <ul>
+                    <li><code>getAttribute()</code> method returns the value of the attribute provided as an
+                        argument</li>
+                    <li><code>setAttribute()</code> can change the value of an element’s attributes. It takes two
+                        arguments</li>
+                </ul>
+
+
             </div>
         </div>
     </div>
