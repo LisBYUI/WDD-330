@@ -21,11 +21,433 @@
             </div>
         </div>
         <div id="site_content">
-            <h2></h2>
+            <h2>Forms</h2>
 
             <hr>
             <div id="content">
+                <h3>How Forms Work </h3>
+                <p>There are two parts to a working form. The first part is the form that you see on the page itself
+                    that is created using HTML markup. Forms are made up of buttons, input fields, and drop-down menus
+                    (collectively known as form controls) used to collect information from the user. Forms may also
+                    contain text and other elements.
+                </p>
+                <p>The other component of a web form is an application or script on
+                    the server that processes the information collected by the form and returns an appropriate response.
+                </p>
+                <h3>The form Element</h3>
+                <p>Forms are added to web pages using the form element. The form element is a
+                    container for all the content of the form, including some number of form controls, such as text
+                    entry fields and buttons. It may also contain block elements (h1, p, and lists, for example).
+                    However, it may not contain another form element.
+                </p>
+                <code>
+                    &lt;!DOCTYPE html&gt;<br>
+                    &nbsp; &nbsp; &nbsp;&lt;html&gt;<br>
+                    &nbsp; &nbsp; &nbsp;&lt;head&gt;<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;...<br>
+                    &nbsp; &nbsp; &nbsp;&lt;/head&gt;<br>
+                    &nbsp; &nbsp; &nbsp;&lt;body&gt; <br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;form &gt;&nbsp;<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;...<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/form&gt;<br>
+                    &nbsp; &nbsp; &nbsp; &lt;/body&gt; <br>
+                    &lt;/html&gt;&nbsp;<br>
+                    </code>
+                <p>In addition to being a container for form control elements, the form element has some attributes that
+                    are necessary for interacting with the form-processing program on the server.
+                </p>
+                <h4>The action attribute</h4>
+                <p> The action attribute provides the location (URL) of the application or script (sometimes called the
+                    action page) that will be used to process the form.
+                </p>
+                <p>
+                    Web forms may be processed using one of the following technologies:
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>TECHNOLOGY</th>
+                            <th>DESCRIPTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PHP</td>
+                            <td>(.php) is an open source scripting language most commonly used with the Apache web
+                                server.</td>
+                        </tr>
+                        <tr>
+                            <td>Microsoft&rsquo;s ASP.NET</td>
+                            <td>(Active Server Pages) (.asp) is a programming environment for the Microsoft Internet
+                                Information Server (IIS).</td>
+                        </tr>
+                        <tr>
+                            <td>Ruby on Rails<br></td>
+                            <td>&nbsp;Ruby is the programming language that is used with the Rails platform. Many
+                                popular web applications are built with it.</td>
+                        </tr>
+                        <tr>
+                            <td>JavaServer Pages<br></td>
+                            <td>(.jsp) is a Java-based technology similar to ASP.</td>
+                        </tr>
+                        <tr>
+                            <td>Python<br></td>
+                            <td>is a popular scripting language for web and server applications.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>The method attribute</h4>
+                <p>The method attribute specifies how the information should be sent to the server. There are only two
+                    methods for sending this encoded data to the server: POST or GET, indicated using the method
+                    attribute in the form element. The method is optional and will default to GET if omitted.
+                </p>
+                <h5>The POST method</h5>
+                <p>When the form’s method is set to POST, the browser sends a separate server request containing some
+                    special headers followed by the data. Only the server sees the content of this request, thus it is
+                    the best method for sending secure information such as credit card or other personal information.
+                </p>
+                <p>
+                    The POST method is also preferable for sending a lot of data, such as a lengthy text entry, because
+                    there is no character limit as there is for GET.
+                </p>
+                <h5>The GET method</h5>
+                <p>
+                    With the GET method, the encoded form data gets tacked right onto the URL sent to the server.
+                </p>
+                <p>
+                    The GET method is appropriate if you want users to be able to bookmark the results of a form
+                    submission (such as a list of search results). Because the content of the form is in plain sight,
+                    GET is not appropriate for forms with private personal or financial information. In addition, GET
+                    may not be used when the form is used to upload a file.
+                </p>
+                <h4>Accessing Form Elements</h4>
+                <p>
+                    The legacy DOM had a useful property called document.forms that returns an HTML collection of all
+                    the forms in the document in the order they appear in the markup. Even though there is only one
+                    form, a collection will still be returned, so we have to use index notation to return the first (and
+                    only) form object.
+                </p>
+                <p>
+                    <code>
+                    const form = document.forms[0];
+                </code>
+                </p>
 
+                <h4>Form Properties and Methods</h4>
+                <h5>Form Object Properties</h5>
+                <p>Form objects have a number of useful properties and methods that can be used to interact with the
+                    form.
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>acceptCharset</td>
+                            <td>Sets or returns the value of the accept-charset attribute in a form</td>
+                        </tr>
+                        <tr>
+                            <td>action</td>
+                            <td>Sets or returns the value of the action attribute in a form</td>
+                        </tr>
+                        <tr>
+                            <td>autocomplete</td>
+                            <td>Sets or returns the value of the autocomplete attribute in a form</td>
+                        </tr>
+                        <tr>
+                            <td>encoding</td>
+                            <td>Alias of&nbsp;enctype</td>
+                        </tr>
+                        <tr>
+                            <td>enctype</td>
+                            <td>Sets or returns the value of the enctype attribute in a form</td>
+                        </tr>
+                        <tr>
+                            <td>length</td>
+                            <td>Returns the number of elements in a form</td>
+                        </tr>
+                        <tr>
+                            <td>method</td>
+                            <td>Sets or returns the value of the method attribute in a form</td>
+                        </tr>
+                        <tr>
+                            <td>name</td>
+                            <td>Sets or returns the value of the name attribute in a form</td>
+                        </tr>
+                        <tr>
+                            <td>noValidate</td>
+                            <td>Sets or returns whether the form-data should be validated or not, on submission</td>
+                        </tr>
+                        <tr>
+                            <td>target</td>
+                            <td>Sets or returns the value of the target attribute in a form</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h5>Form Object Methods</h5>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>reset()</td>
+                            <td>Resets a form</td>
+                        </tr>
+                        <tr>
+                            <td>submit()</td>
+                            <td>Submits a form</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>Form Events</h4>
+                <p>Forms trigger a number of events like those discussed in the last chapter. Some of these events are
+                    exclusive to forms.
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>onblur</td>
+                            <td>Fires the moment that the element loses focus</td>
+                        </tr>
+                        <tr>
+                            <td>onchange</td>
+                            <td>Fires the moment when the value of the element is changed</td>
+                        </tr>
+                        <tr>
+                            <td>oncontextmenu</td>
+                            <td>Script to be run when a context menu is triggered</td>
+                        </tr>
+                        <tr>
+                            <td>onfocus</td>
+                            <td>Fires the moment when the element gets focus</td>
+                        </tr>
+                        <tr>
+                            <td>oninput</td>
+                            <td>Script to be run when an element gets user input</td>
+                        </tr>
+                        <tr>
+                            <td>oninvalid</td>
+                            <td>Script to be run when an element is invalid</td>
+                        </tr>
+                        <tr>
+                            <td>onreset</td>
+                            <td>Fires when the Reset button in a form is clicked</td>
+                        </tr>
+                        <tr>
+                            <td>onsearch</td>
+                            <td>Fires when the user writes something in a search field (for
+                                &lt;input=&quot;search&quot;&gt;)</td>
+                        </tr>
+                        <tr>
+                            <td>onselect</td>
+                            <td>Fires after some text has been selected in an element</td>
+                        </tr>
+                        <tr>
+                            <td>onsubmit</td>
+                            <td>Fires when a form is submitted</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>Form Controls</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tag</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>form</td>
+                            <td>Defines an HTML form for user input</td>
+                        </tr>
+                        <tr>
+                            <td>input</td>
+                            <td>Defines an input control</td>
+                        </tr>
+                        <tr>
+                            <td>textarea</td>
+                            <td>Defines a multiline input control (text area)</td>
+                        </tr>
+                        <tr>
+                            <td>label</td>
+                            <td>Defines a label for an input element</td>
+                        </tr>
+                        <tr>
+                            <td>fieldset</td>
+                            <td>Groups related elements in a form</td>
+                        </tr>
+                        <tr>
+                            <td>legend</td>
+                            <td>Defines a caption for a fieldset element</td>
+                        </tr>
+                        <tr>
+                            <td>select</td>
+                            <td>Defines a drop-down list</td>
+                        </tr>
+                        <tr>
+                            <td>optgroup</td>
+                            <td>Defines a group of related options in a drop-down list</td>
+                        </tr>
+                        <tr>
+                            <td>option</td>
+                            <td>Defines an option in a drop-down list</td>
+                        </tr>
+                        <tr>
+                            <td>button</td>
+                            <td>Defines a clickable button</td>
+                        </tr>
+                        <tr>
+                            <td>datalist</td>
+                            <td>Specifies a list of pre-defined options for input controls</td>
+                        </tr>
+                        <tr>
+                            <td>output</td>
+                            <td>Defines the result of a calculation</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>Form Validation</h4>
+                <p>
+                    Form validation is the process of checking whether a user has entered the information into a form
+                    correctly.
+                </p>
+                <h5>Constraint Validation DOM Methods</h5>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>checkValidity()</td>
+                            <td>Returns true if an input element contains valid data.</td>
+                        </tr>
+                        <tr>
+                            <td>setCustomValidity()</td>
+                            <td>Sets the validationMessage property of an input element.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h5>Constraint Validation DOM Properties</h5>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>validity</td>
+                            <td>Contains boolean properties related to the validity of an input element.</td>
+                        </tr>
+                        <tr>
+                            <td>validationMessage</td>
+                            <td>Contains the message a browser will display when the validity is false.</td>
+                        </tr>
+                        <tr>
+                            <td>willValidate</td>
+                            <td>Indicates if an input element will be validated.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h5>Validity Properties</h5>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>customError</td>
+                            <td>Set to true, if a custom validity message is set.</td>
+                        </tr>
+                        <tr>
+                            <td>patternMismatch</td>
+                            <td>Set to true, if an element&#39;s value does not match its pattern attribute.</td>
+                        </tr>
+                        <tr>
+                            <td>rangeOverflow</td>
+                            <td>Set to true, if an element&#39;s value is greater than its max attribute.</td>
+                        </tr>
+                        <tr>
+                            <td>rangeUnderflow</td>
+                            <td>Set to true, if an element&#39;s value is less than its min attribute.</td>
+                        </tr>
+                        <tr>
+                            <td>stepMismatch</td>
+                            <td>Set to true, if an element&#39;s value is invalid per its step attribute.</td>
+                        </tr>
+                        <tr>
+                            <td>tooLong</td>
+                            <td>Set to true, if an element&#39;s value exceeds its maxLength attribute.</td>
+                        </tr>
+                        <tr>
+                            <td>typeMismatch</td>
+                            <td>Set to true, if an element&#39;s value is invalid per its type attribute.</td>
+                        </tr>
+                        <tr>
+                            <td>valueMissing</td>
+                            <td>Set to true, if an element (with a required attribute) has no value.</td>
+                        </tr>
+                        <tr>
+                            <td>valid</td>
+                            <td>Set to true, if an element&#39;s value is valid.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="site_content">
+                <h2>Object-Oriented Programming in JavaScript</h2>
+            </div>
+            <hr>
+            <div id="content">
+                <h3>Object-Oriented Programming</h3>
+                <p>
+                    Object-oriented programming is often used to model representations of objects in the real world.
+                    There are three main concepts in OOP: encapsulation, polymorphism and inheritance.
+                </p>
+                <h4>Encapsulation</h4>
+                <p>
+                    Inheritance is an approach of sharing common functionality within a collection of classes. It
+                    provides an ability to avoid code duplication in a class that needs the same data and functions
+                    which another class already has. At the same time, it allows us to override or extend functionality
+                    that should have a different behavior.
+                </p>
+
+                <h4>Polymorphism</h4>
+                <p>
+                    Polymorphism in Object-Oriented Programming is an ability to create a property, a function, or an
+                    object that has more than one realization.
+                    Polymorphism is an ability to substitute classes that have common functionality in sense of methods
+                    and data. In other words, it is an ability of multiple object types to implement the same
+                    functionality that can work in a different way but supports a common interface.
+                </p>
+                <h4>Inheritance</h4>
+                <p>
+                    Inheritance is a very useful way to reduce the amount of code that you need to write, as well as a
+                    way to extend the functionality of your fancy Classes without having to re-write everything. Using
+                    inheritance will make your code more efficient and meaningful.
+                </p>
             </div>
         </div>
     </div>
