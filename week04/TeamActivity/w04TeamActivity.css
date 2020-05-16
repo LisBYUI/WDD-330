@@ -1,0 +1,48 @@
+.board {
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.square {
+    height: 1.5em;
+    line-height: 1.5em;
+    width: 1.5em;
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    font-size: 30px;
+}
+
+.square:nth-child(3n) {
+    border-right: none;
+}
+
+.square:nth-child(n+7) {
+    border-bottom: none;
+}
+
+.display{
+    justify-content: center;
+    font-family: "Playfair Display", serif;
+    text-align: center;
+    font-size: 30px;
+    padding: 20px;
+    color:#000000;
+}
+
+.footerBotton{
+    text-align: center;
+    padding: 20px;
+}
+
+input[type=submit] {
+    padding:10px 40px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 15px; 
+}
