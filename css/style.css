@@ -271,12 +271,14 @@ table tr td {
 }
 
 input[type=submit] {
-    padding:10px 30px; 
+    padding:10px 10px; 
     background:#ccc; 
     border:0 none;
     cursor:pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px; 
+    margin: 5px;
+
 }
 
 input[type=text] {
@@ -288,4 +290,9 @@ input[type=text] {
 
 input[type=text]:focus {
     border-color:#333;
+}
+
+.footerButton{
+    text-align: center;
+    padding: 5px;
 }

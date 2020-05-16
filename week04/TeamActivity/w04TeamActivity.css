@@ -33,16 +33,4 @@
     color:#000000;
 }
 
-.footerBotton{
-    text-align: center;
-    padding: 20px;
-}
 
-input[type=submit] {
-    padding:10px 40px; 
-    background:#ccc; 
-    border:0 none;
-    cursor:pointer;
-    -webkit-border-radius: 5px;
-    border-radius: 15px; 
-}

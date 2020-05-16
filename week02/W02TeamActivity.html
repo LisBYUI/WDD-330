@@ -21,23 +21,27 @@
         </div>
         <div id="site_content">
             <div id="content">
-                <input type="text" name="text" id="text" placeholder="Write something!">
+                <div class="footerButton">
+                    <input type="text" name="text" id="text" placeholder="Write something!">
 
-                <input type="text" name="number1" id="number1" placeholder="Enter a whole number">
-                <input type="text" name="number2" id="number2" placeholder="Enter a whole number">
-                </p>
+                    <input type="text" name="number1" id="number1" placeholder="Enter a whole number">
+                    <input type="text" name="number2" id="number2" placeholder="Enter a whole number">
+                </div>
                 <section>
-                    <input type="submit" name="displayText" onclick="displayText()" value="What did you say to me!?" />
-                    <input type="submit" name="GaussSum" onclick="displayGaussSum()" value="Sum all numbers to n" />
-                    <input type="submit" name="add" onclick="displaySum()" value="+" />
-                    <select id="operator">
-                        <option value="add">Add</option>
-                        <option value="subtract">Subtract</option>
-                        <option value="multiply">Multiply</option>
-                        <option value="divide">Divide</option>
-                    </select>
-                    <input type="submit" onclick="displayOperators()" Value="Calculate" />
-                    <input type="submit" onclick="callBackOperator()" value="Calculate Callback" />
+                    <div class="footerButton">
+                        <input type="submit" name="displayText" onclick="displayText()"
+                            value="What did you say to me!?" />
+                        <input type="submit" name="GaussSum" onclick="displayGaussSum()" value="Sum all numbers to n" />
+                        <input type="submit" name="add" onclick="displaySum()" value="+" />
+                        <select id="operator">
+                            <option value="add">Add</option>
+                            <option value="subtract">Subtract</option>
+                            <option value="multiply">Multiply</option>
+                            <option value="divide">Divide</option>
+                        </select>
+                        <input type="submit" onclick="displayOperators()" Value="Calculate" />
+                        <input type="submit" onclick="callBackOperator()" value="Calculate Callback" />
+                    </div>
                 </section>
                 <section>
                     <div id="displayDiv">
