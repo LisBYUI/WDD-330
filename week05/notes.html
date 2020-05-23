@@ -21,11 +21,122 @@
             </div>
         </div>
         <div id="site_content">
-            <h2></h2>
-
+            <h2>Testing and Debugging</h2>
             <hr>
             <div id="content">
+                <h3>Errors, Exceptions, and Warnings</h3>
+                <h4>Erros</h4>
+                <p>
+                    There are three types of errors in programming.
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type of error</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                System Error
+                            </td>
+                            <td>
+                                There's a problem with the system or external devices with which the program is
+                                interacting.
+                            </td>>
+                        </tr>
+                        <tr>
+                            <td>
+                                Programmer Error
+                            </td>
+                            <td>
+                                The program contains incorrect syntax or faulty logic; could be as simple as a typo.
+                            </td>
+                        </tr>
 
+                        <tr>
+                            <td>User Error</td>
+                            <td>User has entered data incorrectly.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Exceptions</h4>
+                <p>
+                    An error that produces a return value that can then be used by the
+                    program to deal with the error.
+                </p>
+
+                <h4>Stack Traces</h4>
+                <p>
+                    A sequence of functions or method calls that lead to the point where the
+                    error occured.
+                </p>
+
+                <h4>Warnings</h4>
+                <p>
+                    Warnings will occur if there's an error in the code that isn't enough to cause a crash.
+                </p>
+
+                <h3>Importance of Testing and Debugging</h3>
+
+                <h4>Strict Mode</td>
+                    <p>'use strict'; - added to the first line of javascript.
+                    </p>
+                    <h4> Linting Tools</h4>
+                    <p>
+                        Linting Tools can test quality of javascript file. Designed to
+                        highlight sloppy programming practices.
+                    </p>
+                    <h4>Debugging in the Browser</h4>
+                    <p>
+                        Process of finding out where bugs occur.
+                    </p>
+                    <h5>Trusty Alert</h5>
+                    <p>
+                        alert() - method to show a dialog at certain points in the code.
+                    </p>
+                    <h5>Console</h5>
+                    <p>
+                        console.log() method
+                    </p>
+                    <p>console.trace()method - will log an interactive stack trace in the console.
+                    </p>
+
+                    <h4>Error Objects</h4>
+                    <p>
+                        ex. <code>const error= new Error("Oops, Something went wrong")</code>
+                    </p>
+                    <h4>Throwing Exceptions</h4>
+                    <p>Throwing exceptions will allow any problems to be highlighted.</p>
+                    <p>ex. <code>throw new Error('something went wrong'); </code></p>
+
+                    <h4>Exception Handling </h4>
+                    <p>
+                        When an exception occurs, the program terminates with an error message.
+                    </p>
+                    <h3> Tests</h3>
+                    <p>
+                        Writing good tests means your code will be less brittle as it develops.
+                    </p>
+
+                    <h4> Test Driven Development (TDD)</h4>
+                    <p>Test-driven development(TDD) is the process of writing tests before any actual code. </p>
+                    <ol>
+                        <li> Write tests that initially fail.</li>
+                        <li> Write code to pass the tests.</li>
+                        <li>Refactor the code. </li>
+                        <li>Test refactored code.</li>
+                        <li>Write more tests for more features.</li>
+                    </ol>
+                    <h3> Testing Frameworks </h3>
+                    <p>
+                        Jest - TDD framework. Install using npm ( npm install -g jest). <br>
+                        Check for version by typing <code> jest -v</code>
+                        To test a file enter into the folder you want to test and <code>jest
+                            -c</code>
+                    </p>
             </div>
         </div>
     </div>
