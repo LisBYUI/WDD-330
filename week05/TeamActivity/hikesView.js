@@ -1,5 +1,5 @@
 // the dataset only has a relative path in it...we need more to find the images...so we have a path variable below. Why isn't this in the model object? What advantages or disadvantages are there to having it here instead of as part of the View object?
-const imgBasePath = '//byui-cit.github.io/cit261/examples/';
+const imgBasePath = './img/';
 
 // since we have multiple methods we need to export, it would make sense to group them together with an object of some sort. This could be as simple as an object literal...or more complex as a class.
 
@@ -15,59 +15,64 @@ class HikesView {
       hikeListElement.appendChild(this.renderOneHikeLight(hike));
     });
   }
+
   renderOneHikeLight(hike) {
     const item = document.createElement('li');
     item.classList.add('light');
     // setting this to make getting the details for a specific hike easier later.
     item.setAttribute('data-name', hike.name);
-    item.innerHTML = ` <h2>${hike.name}</h2>
-    <div class="image"><img src="${imgBasePath}${hike.imgSrc}" alt="${
+    item.innerHTML = ` <h3>${hike.name}</h3>
+    <div class="external">
+    <div class="internal"><img src="${imgBasePath}${hike.imgSrc}" alt="${
       hike.imgAlt
-    }"></div>
-    <div>
-            <div>
-                <h3>Distance</h3>
+      }"></div>
+    <div class="internal">
+            <div class="detail">
+                <h4>Distance</h4>
                 <p>${hike.distance}</p>
             </div>
-            <div>
-                <h3>Difficulty</h3>
+            <div class="detail">
+                <h4>Difficulty</h4>
                 <p>${hike.difficulty}</p>
+            </div>
             </div>
     </div>`;
-
+  
     return item;
   }
+
   renderOneHikeFull(parent, hike) {
-    const backButton = document.createElement('button');
-    backButton.innerHTML = '&lt;- All Hikes';
+    // const backButton = document.createElement('input type="submit"');
+    // backButton.innerHTML = '&lt;- All Hikes';
+
     const item = document.createElement('li');
     item.innerHTML = ` 
-        
-            <img src="${imgBasePath}${hike.imgSrc}" alt="${hike.imgAlt}">
-            <h2>${hike.name}</h2>
+     <input type="submit" Value="&lt;- All Hikes" />  
+    <div class="centralizedItems"><img src="${imgBasePath}${hike.imgSrc}" alt="${hike.imgAlt}"></div>
+            <h3>${hike.name}</h3>
             <div>
-                <h3>Distance</h3>
+                <h4>Distance</h4>
                 <p>${hike.distance}</p>
             </div>
             <div>
-                <h3>Difficulty</h3>
+                <h4>Difficulty</h4>
                 <p>${hike.difficulty}</p>
             </div>
             <div>
-                <h3>Description</h3>
+                <h4>Description</h4>
                 <p>${hike.description}</p>
             </div>
             <div>
-                <h3>How to get there</h3>
+                <h4>How to get there</h4>
                 <p>${hike.directions}</p>
             </div>
         
         `;
     parent.innerHTML = '';
-    item.insertBefore(backButton, item.childNodes[0]);
+    // item.insertBefore(backButton, item.childNodes[0]);
     parent.appendChild(item);
     // send the button back to the controller to attach a listener
-    return backButton;
+    return item;
   }
 }
 export default HikesView;
