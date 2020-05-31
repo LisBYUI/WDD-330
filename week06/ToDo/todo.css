@@ -30,11 +30,6 @@ li {
   font-weight: bold;
 }
 
-.close:hover {
-  background-color: #f44336;
-  color: white;
-}
-
 .complete {
   cursor: pointer;
   position: relative;
