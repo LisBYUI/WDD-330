@@ -47,6 +47,7 @@ export function countRemainingTodos(domLocation, list){
 }
 
 export function nothingToDo(domLocation, list){
+    console.log(list);
     if(list == null){
         domLocation.innerText = "Nothing to do! Add a task?";
         console.log(list);

@@ -1,4 +1,4 @@
-import { getDOMContent, resetDOMContent, renderToDoList, countRemainingTodos, nothingToDo} from './utilities.js'
+import { getDOMContent, resetDOMContent, renderToDoList, countRemainingTodos, nothingToDo } from './utilities.js'
 import { saveToList, retrieveList, updateChecked, updateRemove } from './ls.js'
 
 export default class ToDo {
@@ -36,10 +36,10 @@ export default class ToDo {
             this.addCheckedListener();
             this.addRemoveListener();
         }
-        else {
-            console.log(list);
-            nothingToDo(document.getElementById("nda"), this.getToDoList(filter));
-        }
+
+        console.log(list);
+        nothingToDo(document.getElementById("nda"), this.getToDoList(filter));
+
         countRemainingTodos(document.getElementById("numTasksLeft"), this.getToDoList(false));
     }
 
