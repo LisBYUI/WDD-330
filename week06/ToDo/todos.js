@@ -63,6 +63,7 @@ export default class ToDo {
                 console.log("e: " + e.target.id);
                 if(e.target.id === "active"){
                     toDo.showToDoList(false);
+                    
                 }
                 else if(e.target.id === "completed"){
                     toDo.showToDoList(true);
