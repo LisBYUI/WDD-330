@@ -1,27 +1,28 @@
 // Get dom content of text input
-export function getDOMContent(){
+export function getDOMContent() {
     const content = document.getElementById('addToDo').value;
     return content;
 }
 
 // Reset input field to blank
-export function resetDOMContent(){
+export function resetDOMContent() {
     document.getElementById('addToDo').value = "";
 }
 
 // Display to do list
-export function renderToDoList(parent, list){
+export function renderToDoList(parent, list) {
     parent.innerHTML = "";
     list.forEach(toDo => {
         renderToDo(toDo);
-    });}
+    });
+}
 
 // Display individual todos
-function renderToDo(toDo){
+function renderToDo(toDo) {
     //Display Todo
     const item = document.createElement("li");
     item.id = toDo.id;
-    if(toDo.completed){
+    if (toDo.completed) {
         //Add complete class name for later
         item.className = "complete";
     }
@@ -39,17 +40,12 @@ function renderToDo(toDo){
 }
 
 // Sum the number of todos that are not completed
-export function countRemainingTodos(domLocation, list){
-    if(list != null){
+export function countRemainingTodos(domLocation, list) {
+    if (list != null) {
         const count = list.length;
         domLocation.innerText = "Tasks left: " + count;
     }
-}
-
-export function nothingToDo(domLocation, list){
-    console.log(list);
-    if(list == null){
-        domLocation.innerText = "Nothing to do! Add a task?";
-        console.log(list);
+    else {
+        document.getElementById("nda").innerText = "Nothing to do! Add a task?";
     }
 }
