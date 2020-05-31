@@ -45,3 +45,9 @@ export function countRemainingTodos(domLocation, list){
         domLocation.innerText = "Tasks left: " + count;
     }
 }
+
+export function nothingToDo(domLocation, list){
+    if(list == null){
+        domLocation.innerText = "Nothing to do! Add a task?";
+    }
+}
