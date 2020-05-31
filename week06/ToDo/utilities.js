@@ -51,6 +51,8 @@ export function nothingToDo(domLocation, list) {
     console.log(list);
     if (list == null || list.length == 0) {
         domLocation.innerText = "Nothing to do! Add a task?";
-        console.log(list);
+    }
+    else{
+        domLocation.innerText = "";
     }
 }

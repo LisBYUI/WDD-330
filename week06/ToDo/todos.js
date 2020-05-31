@@ -37,7 +37,6 @@ export default class ToDo {
             this.addRemoveListener();
         }
 
-        console.log(this.getToDoList(filter));
         nothingToDo(document.getElementById("nda"), this.getToDoList("all"));
 
         countRemainingTodos(document.getElementById("numTasksLeft"), this.getToDoList(false));
