@@ -45,7 +45,12 @@ export function countRemainingTodos(domLocation, list) {
         const count = list.length;
         domLocation.innerText = "Tasks left: " + count;
     }
-    else {
-        document.getElementById("nda").innerText = "Nothing to do! Add a task?";
+}
+
+export function nothingToDo(domLocation, list) {
+    console.log(list);
+    if (list == null || list.length == 0) {
+        domLocation.innerText = "Nothing to do! Add a task?";
+        console.log(list);
     }
 }
