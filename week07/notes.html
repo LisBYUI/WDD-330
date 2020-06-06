@@ -25,6 +25,241 @@
 
             <hr>
             <div id="content">
+                <h3>Further Functions</h3>
+                <h4>Function Properties and Methods</h4>
+                <p>Functions are first-class objects in JavaScript meaning they can be passed around in the same way as
+                    every other value. They can have their own methods and properties, they can accept methods as
+                    parameters and they can be returned by other functions</p>
+                <h4>Function Properties and Methods</h4>
+                <code>
+                        function square(x) {<br/>
+                        return x * x;<br/>
+                        }   <br/>           
+                            <br/>
+                        square.length; <br>            
+                        >> 1 - accepts one parameter
+                    </code>
+                <h4>Call and Apply Methods</h4>
+                <p>The call() methods can be used to set the value of this inside a function to an object that is
+                    provided by the first argument.</p>
+                <code>
+                            function sayHello() {<br/>
+                            return `Hello, my name is ${this.name}`;<br/>
+                            } <br/>       
+                            <br/>
+                            const kent = {name: 'Clark'};<br/>
+                            sayHello.call(kent);<br/>
+                            >> 'Hello, my name is Kent';<br/>
+                        </code>
+                <p>The apply() method works in the same way, except the arguments of the function are provided as an
+                    array, even when there is only one argument.</p>
+                <code>
+                            square.call(null, 4);<br/>
+                            square.apply(null, [4]);<br/>
+                    </code>
+                <h4>Memoization</h4>
+                <code>
+                        function square(x) {<br/>
+                        square.cache = squre.cache || {};<br/>
+                        if (!sqaure.cache[x]) { // checks whether the argument is already stored in the cache<br/>
+                        square.cache[x] = x*x; // saves result in the cache<br/>
+                        }<br/>
+                        <br/>
+                        return square.cache[x];<br/>
+                        }<br/>
+                        <br/>
+                        square(3);<br/>
+                        >> 9<br/>
+                        square(-11);<br/>
+                        >> 121<br/>
+                        square.cache;<br/>
+                        >> {'3': 9, '-11': 121}<br/>
+                    </code>
+
+                <h4>Temporary Variables</h4>
+                <p>There is no way to remove a variable from a scope once it's declared. To make a variable
+                    temporary place it inside an IIFE (Immediately Invoked Function Expression)</p>
+                <code>
+                        let a = 1;<br/>
+                        letb = 2;<br/>
+                        (() => {<br/>
+                        const temp = a;<br/>
+                        a = b;<br/>
+                        b = temp;<br/>
+                        })();<br/>
+                        <br/>
+                        a;<br/>
+                        >> 2<br/>
+                        b;<br/>
+                        >> 1<br/>
+                        temp;<br/>
+                        >> Error: "temp is not defined"<br/>
+                    </code>
+
+                <h4>Functions that Define and Rewrite Themselves</h4>
+                <p>JavaScript allows its method to redifine itself by assigning an anonymouse function to a variable
+                    that has the same name as the function</p>
+                <code>
+                function party() {<br/>
+                console.log('Hello');<br/>
+                party = function() { // anonymous function<br/>
+                console.log('world!');<br/>
+                }<br/>
+                }<br/>
+                First call<br/>
+                party();<br/>
+                >> 'Hello'<br/>
+                Succeeding calls will display the anonymous function<br/>
+                party();<br/>
+                >> 'world'!<br/>
+                party();<br/>
+                >> 'world'!<br/>
+            </code>
+
+                <h4>Recursive Functions</h4>
+                <p>Functions that invokes itself until certain condition is met. It's a useful tool to use when an
+                    iterative process is involved.</p>
+                <code>
+                    function factorial(n) {<br/>
+                    if (n === 0) {<br/>
+                    return 1;<br/>
+                    } else {<br/>
+                    retrn n * factorial(n - 1);<br/>
+                    }<br/>
+                    }         <br/>         
+                </code>
+
+                <h4>Promises</h4>
+                <p>A promise represents the future result of an asynchronous operation.</p>
+                <ul>
+                    <li>Resolved - the asynchronous operation was completed successfully</li>
+                    <li>Rejected - the asynchronous operation didn’t work as expected, wasn’t
+                        successfully completed or resulted in an error.</li>
+                </ul>
+                <p>Both of these outcomes will return any relevant data, and you can take the appropriate action
+                    based on the
+                    outcome of the promise</p>
+
+                <code>
+                    const promise = new Promise( (reject, resolve) => {<br/>
+                    // initialization code goes header<br/>
+                    if (success) {<br/>
+                    resolve(value);<br/>
+                    } else {<br/>
+                    reject(error);<br/>
+                    }<br/>
+                    })           <br/>         
+              </code>
+                <h4>Functions That Returns Functions</h4>
+                <code>
+                    function returnHello() {<br/>
+                    console.log('returnHello() called');<br/>
+                    return function() {<br/>
+                    console.log('Hello world');<br/>
+                    }<br/>
+                    }<br/>
+                    Assign function to a variable to invoke the returned function<br/>
+                    const hello = returnHello();<br/>
+                    hello();<br/>
+                    >> 'Hello world'      <br/>            
+            </code>
+                <h4>Closures</h4>
+                <p>
+                    A closure gives you access to an outer function's scope from an inner function. Closures are
+                    created every time a function is created, at function creation time
+                </p>
+                <code>
+function makeAdder(x) {<br/>
+return function(y) {<br/>
+return x + y;<br/>
+}<br/>
+}<br/>
+var add1 = makeAdder(1);<br/>
+var add2 = makeAdder(2);<br/>
+console.log(add1(1)); // 2<br/>
+console.log(add2(2)); // 4   <br/>                 
+              </code>
+
+                <h4>Currying</h4>
+                <p>A function is said to be curried when not all arguments have been supplied to the function, so it
+                    returns another function that retains the arguments already provided, and expets the remaining
+                    arguments
+                    that were omitted when the original function was called. A final result is only returned once all
+                    the
+                    expected arguments have eventually been provided.
+                </p>
+                <code>
+                    function multiplier(x,y) {<br/>
+                    if (y === undefined) {<br/>
+                    return function(z) {<br/>
+                    return x * z;<br/>
+                    }<br/>
+                    } else {<br/>
+                    return x * y;<br/>
+                    }<br/>
+                    }     <br/>               
+              </code>
+
+                <h3>AJAX</h3>
+                <p>
+                    Ajax is a technique that allows web pages to communicate asynchronously with a server, and
+                    it
+                    dynamically updates web pages without reloading. This enables data to be sent and received
+                    in the
+                    background, as well as portions of a page to be updated in response to user events, while
+                    the rest
+                    of the program continues to run.
+                </p>
+                <h4>Clients and Servers</h4>
+                <h5>Client</h5>
+                <p>
+                    A client, such as a web browser, will request a resource (usually a web page) from a server,
+                    which
+                    processes the request and sends back a response to the client.
+                </p>
+                <h5>Server</h5>
+                <p>
+                    Ajax was a neat acronym that referred to the different parts of the process being used:
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Asynchronous</td>
+                            <td>When a request for data is sent, the program doesn&rsquo;t have to stop and wait
+                                for the
+                                response. It can carry on running, waiting for an event to fire when a response
+                                is
+                                received. By using callbacks to manage this, programs are able to run in an
+                                efficient
+                                way, avoiding lag as data is transferred back and forth.</span><br></td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript</td>
+                            <td>JavaScript was always considered a front-end language, not used to communicate
+                                with the
+                                server. Ajax enabled JavaScript to send requests and receive responses from a
+                                server,
+                                allowing content to be updated in real time.&nbsp;</span><br></td>
+                        </tr>
+                        <tr>
+                            <td>XML</span><br></td>
+                            <td>When the term Ajax was originally coined, XML documents were often used to
+                                return data.
+                                Many different types of data can be sent, but by far the most commonly used in
+                                Ajax
+                                nowadays is JSON, which is more lightweight and easier to parse than XML.
+                                (Although it
+                                has never really taken off, the termAjaj is sometimes used to describe the
+                                technique.)
+                                JSON also has the advantage of being natively supported in JavaScript, so you
+                                can deal
+                                with JavaScript objects rather than having to parse XML files using DOM
+                                methods.<br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>The Fetch API</h4>
 
             </div>
         </div>
