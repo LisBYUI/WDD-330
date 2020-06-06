@@ -16,8 +16,8 @@ class CommentModel {
     }
 
     getAllComments() {
-        //const commentList = [new CommentModel(1, 'Test'), new CommentModel(2, 'Test2'), new CommentModel(3, 'Test3'), new CommentModel(1, 'Test1')];
-        return this.commentList;
+        const commentList = [new CommentModel(1, 'Test'), new CommentModel(2, 'Test2'), new CommentModel(3, 'Test3'), new CommentModel(1, 'Test1')];
+        return commentList;
     }
 
     addComment(hikeId, content) {
