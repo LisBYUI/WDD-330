@@ -1,0 +1,35 @@
+  img {
+    margin: 5%;
+    display: inline-block;
+    width: 80%;
+  }
+  
+  .hikeStyles {
+    padding: 0;
+    margin: 1em 0;
+    list-style-type: none;
+  }
+
+  .hikeStyles div {
+    padding: 0 0.5em;
+  }
+
+  .image{
+    text-align: center;
+    margin: 10px;
+    width: 200px;
+}
+
+.internal {
+  float: left;
+  width: 50%;
+}
+
+.external {
+  display: table;
+}
+
+.detail{
+  margin: 10px;
+  vertical-align: middle;
+}

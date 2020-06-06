@@ -1,6 +1,6 @@
 class CommentModel {
-    constructor(hikeId = null, content = '', type = 'hike') {
-        this.hikeId = hikeId;
+    constructor(name = null, content = '', type = 'hike') {
+        this.name = name;
         this.content = content;
         this.date = new Date();
         this.type = type;
@@ -16,13 +16,11 @@ class CommentModel {
     }
 
     getAllComments() {
-        const commentList = [new CommentModel(1, 'Test'), new CommentModel(2, 'Test2'), new CommentModel(3, 'Test3'), new CommentModel(1, 'Test1')];
-        return commentList;
+        return this.commentList;
     }
 
-    addComment(hikeId, content) {
-        //
-        const newComment = new CommentModel(hikeId, content);
+    addComment(name, content) {
+        const newComment = new CommentModel(name, content);
         this.commentList.push(newComment);
         this.writeToLS('comments', this.commentList);
     }
@@ -32,7 +30,7 @@ class CommentView {
 
     renderCommentUI(element) {
         element.innerHTML = `
-            <div class="add-comment"
+            <div class="addComment"
                 <h2>Add a comment</h2>
                 <input type="text" id="comment-entry">
                 <button id="add-comment">Comment</button>
@@ -45,10 +43,11 @@ export default class Comment {
         this.model = new CommentModel();
         this.view = new CommentView();
     }
-    addCommentListener(hikeId) {
-        document.querySelector('#add-comment').ontouchend = () => {
+    addCommentListener(name) {
+        document.querySelector('#add-comment').onclick = () => {
             const content = document.querySelector('#comment-entry').value;
-            this.model.addComment(hikeId, content);
+            this.model.addComment(name, content);
+            document.querySelector('#comment-entry').value = '';
         }
     }
 
