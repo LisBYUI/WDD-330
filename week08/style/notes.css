@@ -1,0 +1,81 @@
+
+.container {
+    margin: 20px;
+    text-align: center;
+}
+
+.shape {
+    display: inline-block;
+    width:80px;
+    height: 80px;
+    background-color: white;
+    margin: 30px;
+    border-radius: 5%;
+    text-align: center;
+}
+#normalClass {
+    background-color: green;
+  }
+  #transformClass:hover {
+    background-color: purple;
+    color: white;
+    border-radius: 5px;
+    transform: translate(20px, 50px);
+  }
+
+  #scaleClass:hover {
+    background-color: red;
+    color: white;
+    transform: scale(1.2);
+  }
+
+  #skewClass:hover {
+    transform: skew(25deg, 25deg);
+    background-color: blue;
+  }
+
+  #rotationClass:hover {
+    display: inline-block;
+    background-color: yellow;
+    font-size: 1px;
+    padding: 1px;
+    color: white;
+    margin-right: 5px;
+    margin-left: 5px;
+    animation: roll 3s infinite;
+    transform: rotate(30deg);
+    opacity: .7;
+  }
+
+   
+  
+  #withoutTransition:hover {
+    background-color: mediumturquoise;
+    transform: scale(2);
+    color: white;
+  }
+  
+  #withTransition:hover{
+    background-color: #2b3f53;
+    transition: all 1s;
+    transform: scale(2);
+    color: white;
+  }
+
+  #fast:hover {
+    background: #60D4C8;
+    transition: all 300ms;
+    transform: scale(2);
+  }
+  
+  #medium:hover {
+    background: #46BAAF;
+    transition: all 1s;
+    transform: scale(2);
+  }
+  
+  #slowly:hover {
+    background: #3EA69B;
+    transition: all 3s;
+    transform: scale(2);
+  }

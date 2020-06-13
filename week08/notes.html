@@ -8,7 +8,7 @@
     <!-- main css -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
-
+    <link rel="stylesheet" href="style/notes.css">
 </head>
 
 <body>
@@ -21,11 +21,158 @@
             </div>
         </div>
         <div id="site_content">
-            <h2></h2>
+            <h2>Transforms and Transitions</h2>
 
             <hr>
             <div id="content">
+                <h3>Transforms</h3>
+                <p>Manipulate an element's appearance.</p>
+                <p><br></p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Translation</td>
+                            <td>allow you to move elements left, right, up, or down. Move elements without impacting the
+                                flow of the document.
+                            </td>
 
+                        </tr>
+                        <tr>
+                            <td>Scaling</td>
+                            <td>defined factors horizontally then vertically. The center stays in the same place as its
+                                dimensions change. No impact on the document flow.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Rotation</td>
+                            <td>rotates an element around the point of origin by a specified angle value. The point of
+                                origin is the element&#39;s center.Positive degrees move clockwise, and negative moves
+                                it counter clockwise.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Skew</td>
+                            <td>specifies a skew along the x and y axes. If the second parameter is omitted, the skew
+                                will only occur on the x axis.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="container">
+                    <div class="shape" id="normalClass">Normal</div>
+                    <div class="shape" id="transformClass">Translated</div>
+                    <div class="shape" id="scaleClass">Scaling</div>
+                    <div class="shape" id="rotationClass">Rotation</div>
+                    <div class="shape" id="skewClass">Skew</div>
+                </div>
+                <h3>Transitions</h3>
+                <p>Allow the values of CSS properties to change over time, essentially providing simple
+                    animations.
+                    -Transitions allow the values of CSS properties to change over time, essentially providing simple
+                    animations.</p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>transition-property</td>
+                            <td>the CSS property where the transition will be applied. You may apply a transition to an
+                                individual property (e.g., background-color or tranform) or to all properties in the
+                                rule-set (i.e., all).</td>
+
+                        </tr>
+                        <tr>
+                            <td>transition-duration</td>
+                            <td>specifies the time span of the transition. You can specify in seconds or milliseconds.
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>transition-timing</td>
+                            <td>allows you to define the speed of the transition over the duration.</td>
+                        </tr>
+                        <tr>
+                            <td>transition-delay</td>
+                            <td>introduce a delay before the animation begins. Normally, a transition begins
+                                immediately, so the default is 0. Include the number of milliseconds (ms) or seconds (s)
+                                to delay the transition<br></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="container">
+                    <div class="shape" id="withoutTransition">Without transition</div>
+                    <div class="shape" id="withTransition">With transition</div>
+                </div>
+                <div class="container">
+                    <div class="shape" id="fast">
+                        300ms
+                    </div>
+                    <div class="shape" id="medium">
+                        1s
+                    </div>
+                    <div class="shape" id="slowly">
+                        3s
+                    </div>
+                </div>
+
+                <h2>Canvas, SVG, and Drag and Drop</h2>
+
+                <h3>Canvas</h3>
+                <p>With canvas, we can draw shapes and lines, arcs and text, gradients and patterns. In addition,
+                    canvas
+                    gives us the power
+                    to manipulate pixels in images and even video.
+                    The first step to using canvas is to add a canvas element to the page:
+                </p>
+                <code>
+                    &lt;canvas>
+                    Sorry! Your browser doesn’t support Canvas.
+                    &lt;/canvas>
+                </code>
+                <p>The canvas element takes both a width and height attribute, which must also be set.</p>
+                <br>
+
+                <code>
+                     &lt;canvas id="myCanvas" class="myCanvas" width="200" height="200">
+                    Sorry! Your browser doesn’t support Canvas.
+                    &lt;/canvas>
+                </code>
+                <p>A canvas is a rectangular area on an HTML page. By default, a canvas has no border and no content.
+                </p>
+                <p>To draw a straight line on a canvas, use the following methods:</p>
+
+                moveTo(x,y) - defines the starting point of the line<br>
+                lineTo(x,y) - defines the ending point of the line<br>
+                To actually draw the line, you must use one of the "ink" methods, like stroke().<br>
+                <canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+                    Your browser does not support the HTML canvas tag.</canvas>
+                <script>
+                    var c = document.getElementById("myCanvas");
+                    var ctx = c.getContext("2d");
+                    ctx.moveTo(0, 0);
+                    ctx.lineTo(200, 100);
+                    ctx.stroke();
+                </script>
+                <p>To draw a circle on a canvas, use the following methods:</p>
+
+                beginPath() - begins a path<br>
+                arc(x,y,r,startangle,endangle) - creates an arc/curve.
+                To create a circle with arc(): Set start
+                angle to 0 and end angle to 2*Math.PI.
+                The x and y parameters define the x- and y-coordinates of the
+                center of the circle.
+                <br>The r parameter defines the radius of the circle.</p>
+                <canvas id="myCanvas2" width="200" height="100" style="border:1px solid #d3d3d3;">
+                    Your browser does not support the canvas element.
+                </canvas>
+
+                <script>
+                    var canvas = document.getElementById("myCanvas2");
+                    var ctx = canvas.getContext("2d");
+                    ctx.beginPath();
+                    ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+                    ctx.stroke();
+                </script>
+                <h3>Canvas versus SVG </h3>
+                
             </div>
         </div>
     </div>
