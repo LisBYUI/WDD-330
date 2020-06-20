@@ -21,11 +21,425 @@
             </div>
         </div>
         <div id="site_content">
-            <h2></h2>
-
-            <hr>
             <div id="content">
+                <h2>The Window Object</h2>
+                <hr>
+                <p>
+                    In a browser environment the global object is the window object. Any variables and functions
+                    created in the
+                    global scope are properties and methods of the window object.
+                </p>
+                <article>
+                    <h3>The Browser Object Model</h3>
+                    <p>
+                        Collection of properties and methods that contain information about the browser and the
+                        computer screen.
+                        There is no official standard for the BOM, however properties and methods supported by all
+                        major browsers are
+                        set to be the de facto standard.
+                    </p>
+                    <figure>
+                        <pre>
+                              <code>
+              // from within the global scope
+              const global = this;                  
+                              </code>
+                          </pre>
+                    </figure>
+                    <h4>Going Global</h4>
+                    <p>Global variables are actual properties of the window object.</p>
+                    <figure>
+                        <pre>
+                              <code>
+              x = 6; // global variable created
+              >> 6            
+              
+              window.x // same variable can be accessed as a property of the window object 
+              >> 6
+              
+              // both variables are the same
+              window.x === x; 
+              >> true
+                              </code>
+                          </pre>
+                    </figure>
+                    <h3>Browser Information</h3>
+                    <p>The window object has a navigator property that returns a reference to the Navigator object.
+                        The Navigator
+                        object contains information bout the browser. Its userAgent property will return information
+                        about the browser
+                        and operating system being used.</p>
+                    <figure>
+                        <pre>
+                                <code>
+              window.navigator.userAgent;
+              >> "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) 
+              AppleWebKit/602.4.8 (KHTML, like Gecko) Version/10.0.3
+              Safari/602.4.8"   
+                                </code>
+                            </pre>
+                    </figure>
+                    <h3>Location</h3>
+                    <p>The window.location property is an object that contains information about the URL of the
+                        current page.</p>
+                    <figure>
+                        <pre>
+                              <code>
+              // returns the full URL as a string
+              window.location.href;
+              
+              // returns a string describing the protocol used
+              window.location.protocol;
+              >> "https:" // Note that there is a colon (:) at the end
+              
+              // returns string describing the domain of the current URL and port number
+              window.location.host;
+              >> "www.sitepoint.com" // ommits port if port 80 is used
+              
+              // returns a string describing the domain of the current URL
+              window.locacation.hostname; // port excluded
+              
+              // returns a string describing the port number; will return empty
+              if not explicitly stated in the URL
+              
+              window.location.port;
+              
+              // returns a string of the path that follows the domain
+              window.location.pathname;
+              >> "/premium/books/js-novice-to-ninja"
+              
+              // returns a string that starts with "?" followed by the query string
+              parameter. It returns empty if there are no query string parameters.
+              
+              window.location.search;
+              >> "?q=Id=1"
+              
+              // returns a string that starts with a "#" followed by fragment identifier;
+              returns empty string if there is no fragment identifier.
+              
+              window.location.hash;
+              
+              // returns a string that shows the protocol and domain where the current page originated.
+              This property is read-only. 
+              
+              window.location.origin;
+              >> "https://www.sitepoint.com"
+              
+              Other methods:
+              1. reload() - can be used to force reload the current page.
+              2. assign() - can be used to load another resource from a URL.
+              3. replace() - almost the same as the assign() method, except the
+              current page will not be stored in the session history.
+              4. toString() - returns a string containing the whole URL.
+                              </code>
+                          </pre>
+                    </figure>
+                    <h3>The Browser History</h3>
+                    <p>The window.history property can be used to access information about the previously visited
+                        pages in the
+                        current browser session.</p>
+                    <figure>
+                        <pre>
+                                <code>
+              window.history.go(1); // goes forward 1 pages
+              window.history.go(0); // reloads current page
+              window.history.go(-1); // goes back 1 page
+                                </code>
+                            </pre>
+                    </figure>
+                    <h3>Screen Information</h3>
+                    <p>The window.screen object contains information about the screen the browser is displayed on.
+                    </p>
+                    <figure>
+                        <pre>
+                              <code>
+              window.screen.height;
+              window.screen.width;
+              
+              // find the height and width of the screen excluding any operating system menus.
+              window.screen.availWidth;
+              window.screen.availHeight;
+              
+              // find the color depth of the user's monitor
+              window.screen.colorDepth;
+                              </code>
+                          </pre>
+                    </figure>
+                    <h3>The Document Object</h3>
+                    <p>
+                        Each window object contains a document object. This object has properties and methods that
+                        deal witht eh page
+                        that has been loaded into the window.
+                    </p>
+                    <p>
+                        The write() method simply writes a string of text to the page.
+                    </p>
+                    <h4>Cookies</h4>
+                    <p>
+                        Cookies are small files that are saved locally on a user’s computer. They were
+                        invented by Netscape as a way of getting round HTTP being a stateless protocol.
+                        This means that a browser does not remember anything from one request to
+                        another.
+                    </p>
+                    <p>
+                        A restriction of cookies is that they can only be read by a web page from the same
+                        domain that set them. This is to stop sites being able to access information about
+                        users, such as other sites they have visited. Cookies are also limited to storing up
+                        to 4KB of data, although 20 cookies are allowed per domain, which can add up to
+                        quite a lot of data.
+                    </p>
+                    <figure>
+                        <pre>
+                                <code>
+              // creating cookie              
+              document.cookie = 'name=Sponge';
+              >> "name=Sponge"
+              
+              // changing cookie value
+              document.cookie = 'name=Patrick';
+              >> "name=Patrick"
+              
+              // reading cookies
+              document.cookie;
+              >> "name=Patrick"
+              
+              // break cookie string into an array
+              
+              const cookies = document.cookie.split("; ");
+              for (crumb in cookies) {
+                const [key, value] = crumb.split("=");
+                console.log(`The value of ${key} is ${value}`);
+              }
+              
+              >> The value of name is Patrick
+              
+              // cookie expiry dates
+              // cookies are session cookies by default, it is deleted once
+              a browser session is finished.
+              
+              // persist cookies
+              const expiryDate = new Date();
+              const tomorrow = expiryDate.getTime() + 1000 * 60 * 60 * 24;
+              expiryDate.setTime(tomorrow);
+              document.cookie = `name=Batman; expires=${expiryDate.toUTCString()}`;
+              
+              // set path
+              document.cookie = 'name=Batman; path=/'
+              
+              // secure cookies
+              document.cookie = 'name=Batman; secure';
+              
+              // delete cookies by setting the expiry date
+              document.cookie = 'name=Batman; expires=Thu, 01 Jan 1970 00:00:01 GMT';
+                                </code>
+                            </pre>
+                    </figure>
+                    <h4>Using the <code>this</code> Keyword</h4>
+                    <p>Be careful when using a method that uses the this keyword with either of these
+                        timing methods. The binding of this is set to the window object, rather than the
+                        method's object.</p>
+                    <figure>
+                        <pre>
+                                <code>
+              const person = {
+                name: 'Superman',
+                introduce() {
+                console.log(`Hi, I'm ${this.name}`);
+                }
+              };
+              
+              setTimeout(person.introduce, 50);
+              >> Hi, I'm                    
+                                </code>
+                            </pre>
+                    </figure>
+                </article>
 
+                <h2>HTML5 APIs</h2>
+                <hr>
+                <p></p>
+                <article>
+                    <h3>The data - Attribute</h3>
+                    <p>The data - attribute is a way of embedding data in a web pages using custom attributes that
+                        are ignored by
+                        the
+                        browser. They are private to a page their sole purpose is to be used by a JavaScript
+                        program.</p>
+                    <ul>
+                        <li>Start with data-</li>
+                        <li>Contain only lowercase letters, numbers, hyphens, dots, colons or underscore</li>
+                        <li>Includde an optional string value</li>
+                    </ul>
+                    <figure>
+                        <pre>
+                              <code>
+              <div id='hero' data-powers='flight superSpeed'>
+                Superman
+              </div>    
+              
+              const s = document.getElementById('hero');
+              const p = s.dataset.powers;
+              >> 'flight superSpeed'
+              
+              // older browser support
+              const powers = s.getAttribute('data-powers');
+              
+              const maxLength = Number(element.dataset.maxLength);
+                              </code>
+                          </pre>
+                    </figure>
+                    <h3>HTML Web Storage</h3>
+                    <p>The Web Storage API provides a key-value store on the client's computer that is similar to
+                        using cookies but
+                        has fewer restrictions, more storage capacity, and is generally easier to use.
+                    </p>
+                    <p>Web Storage API has some crucial difference with cookies</p>
+                    <ul>
+                        <li>Information stored is not shared with the server on every request</li>
+                        <li>Information is available in multiple windows of the browser (if the domain is the same.)
+                        </li>
+                        <li>Storage capacity limit is much larger tht the 4KB limit for cookies.</li>
+                        <li>Does not automatically expire.</li>
+                    </ul>
+                    <figure>
+                        <pre>
+                              <code>
+              // save JavaScript object in local storage
+              localStorage.setItem('superman', JSON.stringify(hero));
+              
+              // retrieve as JavaScript object 
+              s = JSON.parse(localStorage.getItem('superman'));
+                              </code>
+                          </pre>
+                    </figure>
+                    <h3>Geolocation</h3>
+                    <p>The Geolocation API is used to obtain the geographical position of the device.
+                        This means it can be used to find the user’s exact location, then link to nearby
+                        places or measure the speed at which the user is moving. This information can
+                        then be used to filter data based on the user’s location or speed and direction of
+                        travel.</p>
+                    <figure>
+                        <pre>
+                                <code>
+              navigator.geolocation.getCurrentPosition(youAreHere);
+              
+              function youAreHere(position) {
+                console.log(`${position.coords.latitute} ${position.coords.longitude}`);
+              }
+                                </code>
+                            </pre>
+                    </figure>
+                    <h3>Web Workers</h3>
+                    <p>Web workers allow processes to be run in the background, adding support for concurrency in
+                        JavaScript.</p>
+                    <figure>
+                        <pre>
+                              <code>
+              const worker = new Worker('task.js');                  
+                              </code>
+                          </pre>
+                    </figure>
+                    <h4>Websockets</h4>
+                    <p>Websocket is a new protocol that allows two-way communication with a server –
+                        also known as push messaging. This means that a connection is kept open and
+                        responses are ‘pushed’ to the client as soon as they are received.</p>
+                    <h3>Web Socket Code Sample</h3>
+                    <form action="#">
+                        <label for='message'>Enter a Message:</label>
+                        <input type='text' name='message'>
+                        <button type='submit'>Submit</button>
+                    </form>
+                    <div id="output"></div>
+                    <script>
+                        const URL = 'wss://echo.websocket.org/';
+                        outputDiv = document.getElementById('output');
+                        form = document.forms[0];
+                        connection = new WebSocket(URL);
+
+                        connection.addEventListener('open', () => {
+                            output('CONNECTED');
+                        }, false);
+
+                        function output(message) {
+                            const para = document.createElement('p');
+                            para.innerHTML = message;
+                            outputDiv.appendChild(para);
+                        }
+
+                        form.addEventListener('submit', message, false);
+
+                        function message(event) {
+                            event.preventDefault();
+                            const text = form.message.value;
+                            output(`SENT: ${text}`);
+                            connection.send(text);
+                        }
+
+                        connection.addEventListener('message', (event) => {
+                            output(`RESPONSE: ${event.data}`);
+                        }, false);
+
+                        connection.addEventListener('close', () => {
+                            output('DISCONNECTED');
+                        }, false);
+
+                        connection.addEventListener('error', (event) => {
+                            output(`<span style='color: red;'>ERROR: ${event.data}</span>`);
+                        }, false);
+                    </script>
+                    <h4>Notifications</h4>
+                    <p>The Notification API allows you to show messages using the system’s
+                        notifications.</p>
+                    <script>
+                        if (window.Notification) {
+                            Notification.requestPermission()
+                                .then((p) => {
+                                    if (Notification.permission === 'granted') {
+                                        /*const notif = new Notification('Hello JavaScript Ninja!', {
+                                          body: 'JavaScript Notification',
+                                          icon: 'html-5.png'
+                                        });
+                                        notif.addEventListener('click', () => {
+                                          window.open('https://sitepoint.com')
+                                        }, false);
+                                        notif.close();*/
+                                    }
+                                })
+                        }
+                    </script>
+                    <h4>Multimedia</h4>
+                    <p>
+                        Before HTML5, it was notoriously difficult to display audio and video in
+                        browsers, and plugins such as Flash often had to be used. HTML5 introduced the
+                        <audio> and <video> tags used to insert audio and video clips into a web page. It
+                                also introduced a Media API for controlling the playback of the clips using
+                                JavaScript.
+                    </p>
+                    <h3>Other APIs</h3>
+                    <p>
+                        The list of APIs is constantly growing, and includes APIs for accessing a device’s
+                        camera, uploading files, accessing the battery status, handling push notifications,
+                        building drag-and-drop functionality, creating 3D effects with WebGL, and many
+                        more! A comprehensive list of HTML5 APIs can be found at the Mozilla
+                        Developer Network
+                    </p>
+                    <h3>Drawing with Canvas</h3>
+                    <p>
+                        The canvas element was introduced to allow graphics to be drawn onto a web
+                        page in real time using JavaScript. A canvas element is a rectangular element on
+                        the web page. It has a coordinate system that starts at (0,0) in the top-left corner.
+                        To add a canvas element to a page, the canvas tag is used specifying a height
+                        and width .
+                    </p>
+                    <h3>Shims and Polyfills</h3>
+                    <p>
+                        The main difference
+                        between them is that a shim is a piece of code that adds some missing
+                        functionality to a browser, although the implementation method may differ
+                        slightly from the standard API. A polyfill is a shim that achieves the same
+                        functionality, while also using the API commands that would be used if the
+                        feature was supported natively.
+                    </p>
             </div>
         </div>
     </div>
