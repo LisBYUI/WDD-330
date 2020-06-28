@@ -25,7 +25,230 @@
 
             <hr>
             <div id="content">
+                <h3>Form Validation</h3>
+                <p>Form validation normally used to occur at the server, after the client had entered all the necessary
+                    data and then pressed the Submit button. If the data entered by a client was incorrect or was simply
+                    missing, the server would have to send all the data back to the client and request that the form be
+                    resubmitted with correct information. This was really a lengthy process which used to put a lot of
+                    burden on the server.</p>
+                <p>JavaScript provides a way to validate form's data on the client's computer before sending it to the
+                    web server. Form validation generally performs two functions.
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Basic Validation</td>
+                            <td>
+                                First of all, the form must be checked to make sure all the mandatory fields are
+                                filled in. It would require just a loop through each field in the form and check for
+                                data.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Data Format Validationt</td>
+                            <td>
+                                Secondly, the data that is entered must be checked for correct form and
+                                value. Your code must include appropriate logic to test correctness of data.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>Basic Form Validation</h4>
+                <p>
+                    In the above form, we are calling validate() to validate data when onsubmit event is occurring.
+                </p>
+                <form name="myForm" onsubmit="return(validate());">
+                    <table>
+                        <tr>
+                            <td align="right">Name</td>
+                            <td><input type="text" name="Name" /></td>
+                        </tr>
 
+                        <tr>
+                            <td align="right">EMail</td>
+                            <td><input type="text" name="EMail" /></td>
+                        </tr>
+
+                        <tr>
+                            <td align="right">Zip Code</td>
+                            <td><input type="text" name="Zip" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right"></td>
+                            <td><input type="submit" value="Submit" /></td>
+                        </tr>
+                    </table>
+                </form>
+                <h4>Data Format Validation</h4>
+                <p>
+                    The following example shows how to validate an entered email address. An email address must contain
+                    at least a ‘@’ sign and a dot (.). Also, the ‘@’ must not be the first character of the email
+                    address, and the last dot must at least be one character after the ‘@’ sign.
+                </p>
+                <form name="myForm2" onsubmit="return(validateEmail());">
+                    <table>
+                        <tr>
+                            <td align="right">EMail</td>
+                            <td><input type="text" name="EMail" on /></td>
+                        </tr>
+                        <tr>
+                            <td align="right"></td>
+                            <td><input type="submit" value="Submit" /></td>
+                        </tr>
+                    </table>
+                </form>
+                <h3>Using Fetch</h3>
+                <p>
+                    JavaScript can send network requests to the server and load new information whenever it’s needed.
+                    Thr term “AJAX” (abbreviated Asynchronous JavaScript And XML) for network requests from JavaScript.
+                </p>2
+                <p>The fetch() method is modern and versatile, so we’ll start with it. It’s not supported by old
+                    browsers (can be polyfilled), but very well supported among the modern ones.
+
+                    The basic syntax is:
+                    <br>
+                    <code> let promise = fetch(url, [options])</code>
+                    <br>
+                    url – the URL to access.
+                    <br>
+                    options – optional parameters: method, headers etc.
+                </p>
+                <p>Without options, that is a simple <code>GET</code> request, downloading the contents of the url.</p>
+                <code>
+    fetch(url) 
+    <br>// Call the fetch function passing the url of the API as a parameter
+    <br>
+.then(function() {
+    <br>
+    // Your code for handling the data you get from the API
+    <br>
+})
+<br>
+.catch(function() {
+    <br>
+    // This is where you run code if the server returns any errors
+    <br>
+});
+</code>
+                <h5>GET request</h5>
+                <p>Follow an example of a simple GET request, in this case, I will use the Random User API and we will
+                    get 10 users and show them on the page using JavaScript vanilla.</p>
+                <h1>Authors</h1>
+                <ul id="authors"></ul>
+
+                <h5>POST request</h5>
+                <p>
+                    POST requests to create our object and use the fetch function we also have another option and that
+                    is
+                    to use the request constructor to create our request object, so instead of defining the object in
+                    the function itself we do this:
+                </p>
+                
+                    <code><pre>
+                        const url2 = 'https://randomuser.me/api/';
+                        // The data we are going to send in our request
+                        let data = {
+                            name: 'Hannah'
+                        }
+                        // The parameters we are gonna pass to the fetch function
+                        let fetchData = {
+                            method: 'POST',
+                            body: data,
+                            headers: new Headers()
+                        }
+                        fetch(url2, fetchData)
+                            .then(function () {
+                                response => response.json()
+                            });</pre>
+                    </code>
+                
+
+                </section>
+                </main>
+
+                <script type="text/javascript">
+                    // Form validation code will come here.
+                    function validate() {
+
+                        if (document.myForm.Name.value == "") {
+                            alert("Please provide your name!");
+                            document.myForm.Name.focus();
+                            return false;
+                        }
+                        if (document.myForm.EMail.value == "") {
+                            alert("Please provide your Email!");
+                            document.myForm.EMail.focus();
+                            return false;
+                        }
+                        if (document.myForm.Zip.value == "" || isNaN(document.myForm.Zip.value) ||
+                            document.myForm.Zip.value.length != 5) {
+
+                            alert("Please provide a zip in the format #####.");
+                            document.myForm.Zip.focus();
+                            return false;
+                        }
+
+                        return (true);
+                    }
+                    function validateEmail() {
+                        var emailID = document.myForm2.EMail.value;
+                        atpos = emailID.indexOf("@");
+                        dotpos = emailID.lastIndexOf(".");
+
+                        if (atpos < 1 || (dotpos - atpos < 2)) {
+                            alert("Please enter correct email ID")
+                            document.myForm2.EMail.focus();
+                            return false;
+                        }
+                        return (true);
+                    }
+                    function createNode(element) {
+                        return document.createElement(element);
+                    }
+
+                    function append(parent, el) {
+                        return parent.appendChild(el);
+                    }
+
+                    const ul = document.getElementById('authors');
+                    const url = 'https://randomuser.me/api/?results=10';
+                    fetch(url)
+                        .then((resp) => resp.json())
+                        .then(function (data) {
+                            let authors = data.results;
+                            return authors.map(function (author) {
+                                let li = createNode('li'),
+                                    img = createNode('img'),
+                                    span = createNode('span');
+                                img.src = author.picture.medium;
+                                span.innerHTML = ` ${author.name.first} ${author.name.last}`;
+                                append(li, img);
+                                append(li, span);
+                                append(ul, li);
+                            })
+                        })
+                        .catch(function (error) {
+                            console.log(JSON.stringify(error));
+                        });
+
+
+                    const url2 = 'https://randomuser.me/api/';
+                    // The data we are going to send in our request
+                    let data = {
+                        name: 'Hannah'
+                    }
+                    // The parameters we are gonna pass to the fetch function
+                    let fetchData = {
+                        method: 'POST',
+                        body: data,
+                        headers: new Headers()
+                    }
+                    fetch(url2, fetchData)
+                        .then(function () {
+                            response => response.json()
+                        });
+
+                </script>
             </div>
         </div>
     </div>

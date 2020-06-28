@@ -1,5 +1,5 @@
 export default
-class QuakesView {
+    class QuakesView {
     renderQuakeList(quakeList, listElement) {
 
         quakeList.features.forEach(element => {
@@ -14,8 +14,8 @@ class QuakesView {
         listElement.innerHTML = quakeList.features
             .map(quake => {
                 return `<li data-id=${quake.id}><span data-id=${quake.id}>${
-          quake.properties.title
-        }</span><div>${new Date(quake.properties.time)}</div></li>`;
+                    quake.properties.title
+                    }</span><div>${new Date(quake.properties.time)}</div></li>`;
             })
             .join('');
     }
@@ -29,10 +29,13 @@ class QuakesView {
                 } else return `<li><span class="title">${item[0]}:</span> ${item[1]}</li>`;
             })
             .join('');
-        const button = document.createElement('button');
-        button.innerHTML = 'Back';
+
+        const button = document.createElement("input");
+        button.setAttribute("id", "btn");
+        button.setAttribute("type", "submit");
+        button.setAttribute("value", "Back");
         button.classList.add('btn');
-        
+
         element.insertBefore(button, element.childNodes[0]);
 
         return button;
