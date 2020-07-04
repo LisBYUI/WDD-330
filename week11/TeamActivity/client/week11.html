@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication with JWT</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <main>
+        <h1>Ponder Team Activity: Authentication with JWT</h1>
+        <div id="login">
+            <form>
+                <label for="username">
+                    Username:
+                    <input type="text" value="" id="username" name="username" />
+                </label>
+                <label for="password">
+                    Password:
+                    <input type="password" value="" id="password" name="password" />
+                </label>
+                <button type="button" id="btnLogin">Login</button>
+            </form>
+        </div>
+        <div id="content" class="hidden">
+            <form>
+                <label for="title">
+                    Title:
+                    <input type="text" name="title" id="title" class="post" />
+                </label>
+                <label for="comment">
+                    Content:
+                    <input type="text" name="comment" id="comment" class="post" />
+                </label>
+                <button type="button" id="btnComment">Post Comment</button>
+            </form>
+            <ul id="commentList"></ul>
+        </div>
+    </main>
+    <script src="week11.js" type="module" defer></script>
+</body>
+
+</html>
