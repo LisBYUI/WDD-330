@@ -1,229 +1,233 @@
-let bookContainer = document.querySelector(".search");
-let searchBooks = document.getElementById("search-box");
-const getBooks = async (book) => {
-  const response = await fetch(
-    `https://www.googleapis.com/books/v1/volumes?q=${book}`
-  );
-  const data = await response.json();
-  console.log(response);
+const books = (function ($) {
+  const url = 'https://www.googleapis.com/books/v1/volumes?q=';
+  return {
+    fetched: [],
+    data: [this.fields],
+    searchterms: {},
+    querystring: '',
+    searching: false,
+    fields: {
+      title: true,
+      authors: true,
+      publisher: true,
+      description: true,
+      categories: true,
+      publishedDate: true,
+      previewLink: true,
+      selfLink: true,
+      ISBN: true,
+      pageCount: true,
+      printType: true,
+    },
+    filters: [
+      { name: 'title', param: 'intitle', placeholder: 'Title', active: false },
+      { name: 'authors', param: 'inauthor', placeholder: 'Authors', active: false },
+      { name: 'category', param: 'subject', placeholder: 'Category', active: false },
+      { name: 'publisher', param: 'inpublisher', placeholder: 'Publisher', active: false },
+      { name: 'ISBN', param: 'isbn', placeholder: 'ISBN', active: false },
+      { name: 'general', param: 'general', placeholder: 'All fields', active: false }
+    ],
+    searcharray: [],
+    displayFilters: function (container_id) {
+      let container = $('#' + container_id);
+      for (var f = 0; f < this.filters.length; f++) {
+        let filter = this.filters[f];
+        let elm = $('<input>').
+          attr('data-filter-id', f).
+          prop('id', filter.name).
+          prop('name', filter.param).
+          prop('name', filter.param).
+          prop('placeholder', filter.placeholder).
+          prop('class', 'searchbox filter');
+        container.append(elm);
+      }
+    },
+    buildQueryString: function () {
+      this.querystring = typeof this.searchterms.general !== 'undefined' ? this.searchterms.general : '';
+      for (f in this.searchterms) {
+        if (f !== 'general') {
+          this.querystring += (this.querystring.length ? '+' : '') +
+            f +
+            ':' +
+            this.searchterms[f];
+        }
+      }
+    },
+    handleSearch: function (classname) {
+      $('.' + classname).keyup(function () {
+        var that = $(this);
+        setTimeout(function () {
+          books.searching ? books.searching.abort() : '';
+          books.searching = false;
+          let val = that.val().replace(/\s/g, '%20');
+          if (val.length > 1) {
+            that.addClass('active');
+            books.searchterms[that.prop('name')] = val;
+          }
+          else {
+            that.removeClass('active');
+            delete books.searchterms[that.prop('name')];
+          }
+          if (books.searchterms) {
+            books.buildQueryString();
+          }
 
-  return data;
-};
+          if (books.querystring) {
+            books.get(books.querystring).
+              then(function (response) {
+                books.set(response);
+                books.reset('filters');
+                books.autocomplete('general');
 
-const extractThumbnail = ({ imageLinks }) => {
-  const DEFAULT_THUMBNAIL = "http://clipart-library.com/new_gallery/15-156134_close-up-magic-book-transparent-background.png";
-  if (!imageLinks || !imageLinks.thumbnail) {
-    return DEFAULT_THUMBNAIL;
-  }
-  return imageLinks.thumbnail.replace("http://", "https://");
-};
-const drawChartBook = async (subject, startIndex = 0) => {
-  let cbookContainer = document.querySelector(`.${subject}`);
-  cbookContainer.innerHTML = `<div class='prompt'><div class="loader"></div></div>`;
-  const cdata = await getBooks(
-    `subject:${subject}&startIndex=${startIndex}&maxResults=6`
-  );
-  if (cdata.error) {
-    cbookContainer.innerHTML = `<div class='prompt'>ツ Limit exceeded! Try after some time</div>`;
-  } else if (cdata.totalItems == 0) {
-    cbookContainer.innerHTML = `<div class='prompt'>ツ No results, try a different term!</div>`;
-  } else if (cdata.totalItems == undefined) {
-    cbookContainer.innerHTML = `<div class='prompt'>ツ Network problem!</div>`;
-  } else if (!cdata.items || cdata.items.length == 0) {
-    cbookContainer.innerHTML = `<div class='prompt'>ツ There is no more result!</div>`;
-  } else {
-    cbookContainer.innerHTML = cdata.items;
-    cbookContainer.innerHTML = cdata.items
-      .map(
-        ({ volumeInfo }) =>
-          `<div class='book' style='background: linear-gradient(` +
-          getRandomColor() +
-          `, rgba(0, 0, 0, 0));'><a href='${volumeInfo.previewLink}' target='_blank'><img class='thumbnail' src='` +
-          extractThumbnail(volumeInfo) +
-          `' alt='cover'></a>
-          <div class='book-info'>
-            <h3 class='book-title'>
-                <a href='${volumeInfo.previewLink}' target='_blank'>${volumeInfo.title}</a>
-            </h3>
-            <div class='book-authors' onclick='updateFilter(this,"author");'> by ${volumeInfo.authors}</div>
-            <div class='book-authors' onclick='updateFilter(this,"author");'>${volumeInfo.publisher}</div>
-            <div class='info' onclick='updateFilter(this,"subject");' style='background-color: ` +
-          getRandomColor() +
-          `;'>` +
-          (volumeInfo.categories === undefined
-            ? "Others"
-            : volumeInfo.categories) +
-          `</div></div></div>`
+                $('#general').autocomplete('search', '');
+              });
+          }
+          else {
+            books.clear('filters');
 
-      )
-      .join("");
-    console.log(cdata.items);
-  }
-};
-const drawListBook = async () => {
-  if (searchBooks.value != "") {
-    bookContainer.style.display = "flex";
-    bookContainer.innerHTML = `<div class='prompt'><div class="loader"></div></div>`;
-    const data = await getBooks(`${searchBooks.value}&maxResults=6`);
-    if (data.error) {
-      bookContainer.innerHTML = `<div class='prompt'>ツ Limit exceeded! Try after some time</div>`;
-    } else if (data.totalItems == 0) {
-      bookContainer.innerHTML = `<div class='prompt'>ツ No results, try a different term!</div>`;
-    } else if (data.totalItems == undefined) {
-      bookContainer.innerHTML = `<div class='prompt'>ツ Network problem!</div>`;
-    } else {
-      bookContainer.innerHTML = data.items
-        .map(
-          ({ volumeInfo }) =>
-            `<div class='book' style='background: linear-gradient(` + getRandomColor() + `, rgba(0, 0, 0, 0));'>
-            <div class='book-info'>
-                <a href='${volumeInfo.previewLink}' target='_blank'>
-                    <img class='thumbnail' src='` + extractThumbnail(volumeInfo) + `' alt='cover'>
-                </a>
+          }
+        }, 700);
+      });
+    },
 
-                <div class='book-authors'  onclick='updateFilter(this,"author");'> by
-                        ${volumeInfo.authors}
-                </div>
-                <div > Published in 
-                        ${volumeInfo.publishedDate}
-                </div>
-                <div >  
-                ${volumeInfo.publisher}
-                
-        </div>
-                <div class='info' onclick='updateFilter(this,"subject");' style='background-color: ` + getRandomColor() + `;'>` +
-            (volumeInfo.categories === undefined ? "Others" : volumeInfo.categories) +
-            ` </div>
+    get: function (querystring) {
+      return new Promise(function (resolve, reject) {
+        var req = new XMLHttpRequest();
+        this.searching = req;
+        req.open('GET', url + querystring);
+        req.onload = function () {
+          if (req.status == 200) {
+            var parsed = JSON.parse(req.response);
+            resolve(parsed);
+          }
+          else {
+            reject(Error(req.statusText));
+          }
+        };
+        req.onerror = function () {
+          reject(Error('Network Error'));
+        };
+        req.send();
+      });
+    },
+    set: function (data) {
+      this.fetched = data.items;
+      this.data = this.fetched;
+      for (book in this.data) {
+
+        this.data[book] = this.data[book];
+        let arr = [];
+        for (field in this.fields) {
+          let val = this.data[book][field];
+          this.data[book][field] = Array.isArray(val) ? val.join(', ') : val;
+
+          if (this.fields[field] && this.data[book].hasOwnProperty(field)) {
+            arr.push(val);
+          }
+        }
+        this.searcharray.push({
+          label: arr.join(' | '),
+          value: this.searcharray.length
+        });
+      }
+    },
+    reset: function (form_id) {
+      if (typeof $('#general').autocomplete('instance') !== 'undefined') {
+        $('#general').autocomplete('destroy');
+      }
+    },
+    clear: function (form_id) {
+      $('#' + form_id + ' input').each(function () {
+        $(this).val('');
+      });
+    },
+    autocomplete: function (id) {
+      $('#' + id).autocomplete({
+        minLength: 0,
+
+        source: function (request, response) {
+          response($.map(books.data, function (value, key) {
+            return {
+              label: value.volumeInfo.title,
+              value: value.volumeInfo.title,
+              title: value.volumeInfo.title,
+              subtitle: value.volumeInfo.subtitle,
+              authors: value.volumeInfo.authors,
+              publisher: value.volumeInfo.publisher,
+              description: value.volumeInfo.description,
+              categories: value.volumeInfo.categories,
+              publishedDate: value.volumeInfo.publishedDate,
+              previewLink: value.volumeInfo.previewLink,
+              selfLink: value.selfLink,
+              pageCount: value.volumeInfo.pageCount,
+              printType: value.volumeInfo.printType,
+              ISBN: (typeof value.volumeInfo.industryIdentifiers !== 'undefined' ? value.volumeInfo.industryIdentifiers[0] : ''),
+              image: (typeof value.volumeInfo.imageLinks !== 'undefined' ? value.volumeInfo.imageLinks.thumbnail : '')
+
+            }
+          }));
+        },
+        open: function () {
+        },
+        change: function (event, ui) {
+        },
+        close: function (event, ui) {
+          $('.ui-menu').css('display', 'block');
+        },
+        appendTo: '#filters'
+      }).
+        data('ui-autocomplete')._renderItem = function (ul, item) {
+
+          let info = `
+                <div class="external">
+                    <div class="internal"><a href="${item.previewLink}" target="_blank"><img class="book-thumbnail" src="${item.image === '' ? './img/image_preview.png' : item.image}" alt="${item.value}"/></a>
+                         <div class="detail book-preview" ${typeof item.ISBN.identifier === 'undefined' ? 'hidden' : ''}><a href="javascript:void(0)" onClick="initialize(${item.ISBN.identifier}, '${item.title}')">Preview ${item.printType === undefined ? "" : item.printType}</a></div>
                     </div>
-                <div class='book-info'>
-                    <h3 class='book-title'>
-                        <a href='${volumeInfo.previewLink}' target='_blank'>${volumeInfo.title}</a>
-                    </h3>
-                    <p>
-                      ${volumeInfo.description}
-                    </p>
-                </div>
-            </div>`
-        )
-        .join("");
+                   
+                    <div class="internalDetail">
+                         <div class="detail book-title">${item.title}</div>
+                         <div class="detail" ${typeof item.subtitle === 'undefined' ? 'hidden' : ''}>${item.subtitle}</div>
+                         <div class="detail book-authors" ${typeof item.authors === 'undefined' ? 'hidden' : ''}>by ${item.authors}</div>
+                         <div class="detail" ${typeof item.publisher === 'undefined' ? 'hidden' : ''}>${item.publisher}</div>
+                         <div class="detail" ${typeof item.publishedDate === 'undefined' ? 'hidden' : ''}>Published in ${item.publishedDate}</div>
+                         <div class="detail book-categories"> ${item.categories === undefined ? "Others" : item.categories}</div>
+                    </div>
+                </div>`;
+          return $('<li></li>').
+            data('item.ui-autocomplete', item).
+            append(info).
+            appendTo(ul);
+        }
     }
-  } else {
-    bookContainer.style.display = "none";
   }
-};
-const updateFilter = ({ innerHTML }, f) => {
-  console.log(f);
-  document.getElementById("main").scrollIntoView({
-    behavior: "smooth",
-  });
-  let m;
-  switch (f) {
-    case "author":
-      m = "inauthor:";
-      break;
-    case "subject":
-      m = "subject:";
-      break;
-  }
-  searchBooks.value = m + innerHTML;
-  console.log("search" + searchBooks.value);
-  debounce(drawListBook, 1000);
-};
-const debounce = (fn, time, to = 0) => {
-  to ? clearTimeout(to) : (to = setTimeout(drawListBook, time));
-};
-searchBooks.addEventListener("input", () => debounce(drawListBook, 1000));
-document.addEventListener("DOMContentLoaded", () => {
-  drawChartBook("love");
-  drawChartBook("feminism");
-  drawChartBook("inspirational");
-  drawChartBook("authors");
-  drawChartBook("fiction");
-  drawChartBook("poetry");
-  drawChartBook("fantasy");
-  drawChartBook("romance");
+})($);
+
+$(document).ready(function () {
+  books.displayFilters('filters');
+  books.handleSearch('searchbox');
+
 });
-let mainNavLinks = document.querySelectorAll(".scrolltoview");
-window.addEventListener("scroll", (event) => {
-  let fromTop = window.scrollY + 64;
-  mainNavLinks.forEach(({ hash, classList }) => {
-    let section = document.querySelector(hash);
-    if (
-      section.offsetTop <= fromTop &&
-      section.offsetTop + section.offsetHeight > fromTop
-    ) {
-      classList.add("current");
-    } else {
-      classList.remove("current");
-    }
-  });
-});
-const getRandomColor = () =>
-  `#${Math.floor(Math.random() * 16777215).toString(16)}40`;
-const toggleSwitch = document.querySelector(
-  '.theme-switch input[type="checkbox"]'
-);
-if (localStorage.getItem("marcdownTheme") == "dark") {
-  document.documentElement.setAttribute("data-theme", "dark");
-  document
-    .querySelector("meta[name=theme-color]")
-    .setAttribute("content", "#090b28");
-  toggleSwitch.checked = true;
-  localStorage.setItem("marcdownTheme", "dark");
-} else {
-  document.documentElement.setAttribute("data-theme", "light");
-  document
-    .querySelector("meta[name=theme-color]")
-    .setAttribute("content", "#ffffff");
-  toggleSwitch.checked = false;
-  localStorage.setItem("marcdownTheme", "light");
+
+
+function initialize(isbn, title) {
+
+  var x = screen.width / 2 - 700 / 2;
+  var y = screen.height / 2 - 450 / 2;
+
+  var myWindow = window.open("", "name", 'height=485,width=620,left=' + x + ',top=' + y);
+  myWindow.document.write(`
+     <script type="text/javascript" src="http://books.google.com/books/previewlib.js"></script>
+     <script type="text/javascript">
+     GBS_setLanguage('en');
+     GBS_insertEmbeddedViewer('ISBN:${isbn}',600,700);
+     </script>`);
+  myWindow.document.title = title;
+
+  myWindow.focus();
+  setTimeout(function () {
+    myWindow.close();
+  }, 15000);
 }
-const switchTheme = ({ target }) => {
-  if (target.checked) {
-    document.documentElement.setAttribute("data-theme", "dark");
-    document
-      .querySelector("meta[name=theme-color]")
-      .setAttribute("content", "#090b28");
-    localStorage.setItem("marcdownTheme", "dark");
-  } else {
-    document.documentElement.setAttribute("data-theme", "light");
-    document
-      .querySelector("meta[name=theme-color]")
-      .setAttribute("content", "#ffffff");
-    localStorage.setItem("marcdownTheme", "light");
-  }
-};
-toggleSwitch.addEventListener("change", switchTheme, false);
-let startIndex = 0;
-const next = (subject) => {
-  startIndex += 6;
-  if (startIndex >= 0) {
-    document.getElementById(`${subject}-prev`).style.display = "inline-flex";
-    drawChartBook(subject, startIndex);
-  } else {
-    document.getElementById(`${subject}-prev`).style.display = "none";
-  }
-};
-const prev = (subject) => {
-  startIndex -= 6;
-  if (startIndex <= 0) {
-    startIndex = 0;
-    drawChartBook(subject, startIndex);
-    document.getElementById(`${subject}-prev`).style.display = "none";
-  } else {
-    document.getElementById(`${subject}-prev`).style.display = "inline-flex";
-    drawChartBook(subject, startIndex);
-  }
-};
-const modal = document.querySelector(".modal");
-const trigger = document.querySelector(".trigger");
-const closeButton = document.querySelector(".close-button");
-const toggleModal = () => modal.classList.toggle("show-modal");
-const windowOnClick = ({ target }) => {
-  if (target === modal) {
-    toggleModal();
-  }
-};
-trigger.addEventListener("click", toggleModal);
-closeButton.addEventListener("click", toggleModal);
-window.addEventListener("click", windowOnClick);
+
+
+

@@ -202,17 +202,17 @@ ul#menu li.selected a:hover {
 }
 
 #site_content {
-    width: 854px;
+    width: 85%;
     overflow: hidden;
     margin: 0 auto 0 auto;
-    padding: 0 24px 20px 20px;
+    padding: 0 10px 10px 10px;
     background: #FFF;
 }
 
 #content {
     text-align: left;
     float: left;
-    width: 800px;
+    width: 80%;
     padding: 0;
 }
 
@@ -222,14 +222,13 @@ ul#menu li.selected a:hover {
 
 #content ul li {
     list-style-type: none;
-    background: url(bullet.png) no-repeat;
     margin: 0 0 6px 0;
     padding: 0 0 4px 25px;
     line-height: 1.5em;
 }
 
 #footer {
-    width: 898px;
+    width: 90%;
     font: normal 100% "Playfair Display", serif;
     ;
     height: 33px;
