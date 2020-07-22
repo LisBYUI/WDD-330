@@ -158,7 +158,8 @@ const books = (function ($) {
               categories: value.volumeInfo.categories,
               publishedDate: value.volumeInfo.publishedDate,
               previewLink: value.volumeInfo.previewLink,
-              selfLink: value.selfLink,
+              selfLink: value.selfLink, 
+              infoLink: value.infoLink,
               pageCount: value.volumeInfo.pageCount,
               printType: value.volumeInfo.printType,
               ISBN: (typeof value.volumeInfo.industryIdentifiers !== 'undefined' ? value.volumeInfo.industryIdentifiers[0] : ''),
@@ -180,7 +181,7 @@ const books = (function ($) {
 
           let info = `
                 <div class="external">
-                    <div class="internal"><a href="${item.previewLink}" target="_blank"><img class="book-thumbnail" src="${item.image === '' ? './img/image_preview.png' : item.image}" alt="${item.value}"/></a>
+                    <div class="internal"><a href="${item.infoLink}" target="_blank"><img class="book-thumbnail" src="${item.image === '' ? './img/image_preview.png' : item.image}" alt="${item.value}"/></a>
                          <div class="detail book-preview" ${typeof item.ISBN.identifier === 'undefined' ? 'hidden' : ''}><a href="javascript:void(0)" onClick="initialize(${item.ISBN.identifier}, '${item.title}')">Preview ${item.printType === undefined ? "" : item.printType}</a></div>
                     </div>
                    
