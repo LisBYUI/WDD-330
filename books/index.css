@@ -40,6 +40,9 @@ ul {
 li{
   list-style-type: none !important;
   height: 250px;
+  background-color: whitesmoke;
+  border-radius: 16px;
+  padding: 5px;
 }
 
 /* input
