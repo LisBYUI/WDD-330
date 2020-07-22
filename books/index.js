@@ -216,11 +216,9 @@ function initialize(isbn, title) {
 
   var myWindow = window.open("", "name", 'height=485,width=620,left=' + x + ',top=' + y);
   myWindow.document.write(`
-     <script type="text/javascript" src="http://books.google.com/books/previewlib.js"></script>
-     <script type="text/javascript">
-     GBS_setLanguage('en');
-     GBS_insertEmbeddedViewer('ISBN:${isbn}',600,700);
-     </script>`);
+  <script type="text/javascript" src="https://books.google.com/books/previewlib.js"></script>
+  <script>GBS_setLanguage('en');</script>
+  <script>GBS_insertEmbeddedViewer('ISBN:${isbn}',600,700);</script>`);
   myWindow.document.title = title;
 
   myWindow.focus();
