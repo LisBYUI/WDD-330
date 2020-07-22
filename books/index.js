@@ -159,7 +159,7 @@ const books = (function ($) {
               publishedDate: value.volumeInfo.publishedDate,
               previewLink: value.volumeInfo.previewLink,
               selfLink: value.selfLink, 
-              infoLink: value.infoLink,
+              infoLink: value.volumeInfo.infoLink,
               pageCount: value.volumeInfo.pageCount,
               printType: value.volumeInfo.printType,
               ISBN: (typeof value.volumeInfo.industryIdentifiers !== 'undefined' ? value.volumeInfo.industryIdentifiers[0] : ''),
